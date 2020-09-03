@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/card_event_id"
+        android:background="@drawable/border_grey_radius"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+        <LinearLayout
+            android:paddingTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:background="@color/colorBlack"
+                android:id="@+id/img_event"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/table"
+                android:scaleType="centerCrop"
+                />
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:gravity="left"
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:hint="Doctor Name"
+                        android:id="@+id/app_doctorname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:textColor="@color/colorBlack"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingStart="10dp"
+                    android:gravity="left"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:textSize="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Skill :"
+                        />
+                    <TextView
+                        android:layout_marginStart="5dp"
+                        android:hint="Skill"
+                        android:id="@+id/app_skill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="10dp"
+                        android:textColor="@color/colorBlack"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingStart="10dp"
+                    android:gravity="left"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:textSize="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Degree  :"
+                        />
+                    <TextView
+                        android:layout_marginStart="5dp"
+                        android:hint="Degree"
+                        android:id="@+id/app_degree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="10dp"
+                        android:textColor="@color/colorBlack"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingStart="10dp"
+                    android:gravity="left"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:textSize="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Woring Experient :"
+                        />
+                    <TextView
+                        android:layout_marginStart="5dp"
+                        android:hint="Working Experient"
+                        android:id="@+id/app_experient"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="10dp"
+                        android:textColor="@color/colorBlack"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingStart="10dp"
+                    android:gravity="left"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:textSize="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Day Off :"
+                        />
+                    <TextView
+                        android:layout_marginStart="5dp"
+                        android:hint="Day Off"
+                        android:id="@+id/app_dayoff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="10dp"
+                        android:textColor="@color/colorBlack"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingStart="10dp"
+                    android:gravity="left"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:textSize="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Woring Hour :"
+                        />
+                    <TextView
+                        android:layout_marginStart="5dp"
+                        android:hint="Working hour"
+                        android:id="@+id/app_workinghour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="10dp"
+                        android:textColor="@color/colorBlack"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MY ORDERS</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="myorders">My Orders</string>
+    <string name="myitems">My Items</string>
+    <string name="mycupon">My Cupon</string>
+    <string name="account">My Account</string>
+    <string name="appointment">Appointment</string>
+</resources>

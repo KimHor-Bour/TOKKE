@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:id="@+id/txt_datetime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Date and Time"
+        android:textColor="@color/colorPurplePink"/>
+
+    <com.github.florent37.singledateandtimepicker.SingleDateAndTimePicker
+        android:id="@+id/singlepicker"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_datetime"
+        app:picker_curved="true"
+        app:picker_cyclic="true"
+        app:picker_dayCount="31"
+        app:picker_itemSpacing="6dp"
+        app:picker_mustBeOnFuture="true"
+        app:picker_selectorColor="@color/colorPurplePink"
+        app:picker_stepSizeHours="1"
+        app:picker_stepSizeMinutes="5"
+        app:picker_visibleItemCount="7" />
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/okbutton"
+        android:background="@drawable/border_radius_bg_purplepink"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:textColor="@color/colorWhite"
+        android:text="OK"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/singlepicker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

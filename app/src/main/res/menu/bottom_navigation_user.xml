@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navi_dashboard"
+        android:icon="@drawable/dashboard"
+        android:title="@string/dashboard"/>
+    <item
+        android:id="@+id/navi_myorder"
+        android:icon="@drawable/shopper"
+        android:title="@string/myorders"/>
+    <item
+        android:id="@+id/navi_myitems"
+        android:icon="@drawable/storage"
+        android:title="@string/myitems"/>
+    <item
+        android:id="@+id/navi_cupon"
+        android:icon="@drawable/coupon"
+        android:title="@string/mycupon"/>
+    <item
+        android:id="@+id/navi_account"
+        android:icon="@drawable/account"
+        android:title="@string/account"/>
+
+</menu>

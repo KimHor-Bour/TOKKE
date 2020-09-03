@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/border_bacground_white"
+    >
+    <LinearLayout
+        android:id="@+id/create_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create Product"
+            android:gravity="center"
+            android:textSize="14dp"
+            android:textColor="@color/colorBlack"
+            android:layout_gravity="center"
+            />
+        <View
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:background="@color/colorGrey"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/create_room"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create Room"
+            android:gravity="center"
+            android:textSize="14dp"
+            android:textColor="@color/colorBlack"
+            android:layout_gravity="center"
+            />
+        <View
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:background="@color/colorGrey"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/create_table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create Table"
+            android:gravity="center"
+            android:textSize="14dp"
+            android:textColor="@color/colorBlack"
+            android:layout_gravity="center"
+            />
+        <View
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:background="@color/colorGrey"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/create_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create Event"
+            android:gravity="center"
+            android:textSize="14dp"
+            android:textColor="@color/colorBlack"
+            android:layout_gravity="center"
+            />
+        <View
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:background="@color/colorGrey"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>
