@@ -62,11 +62,14 @@ public class Booking extends DialogFragment implements View.OnClickListener {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
 
         recyclerView.setLayoutManager(llm);
+
         textView = rootView.findViewById(R.id.txtfilter);
         textView.setText(values[0]);
 
         RecyclerAdapterBooking recyclerAdapter = new RecyclerAdapterBooking(datas);
         recyclerView.setAdapter(recyclerAdapter);
+        recyclerAdapter.setDetailListener(detailListener);
+
         linearLayout = (LinearLayout)rootView.findViewById(R.id.filterbtn);
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override

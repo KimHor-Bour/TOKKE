@@ -10,35 +10,7 @@
         android:roundIcon="@mipmap/harry_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<!--        <activity android:name=".XML.MainActivity">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
-<!--        <activity android:name=".XML.TestRecycler">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-<!--                <action android:name="android.intent.action.CREATE_SHORTCUT" />-->
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
-        <activity android:name=".XML.BookingTab" >
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-        </activity>
-<!--        <activity android:name=".XML.BookingMyorder" />-->
-        <activity android:name=".Java.AlertDialogRadio" >
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-        </activity>
+        <activity android:name=".Java.AlertDialogRadio"/>
         <activity android:name=".XML.ScreenKess" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,29 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".XML.AppointmentScreen" />
-        <activity android:name=".Test.Test"  >
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-        </activity>
-        <activity android:name=".XML.CreateItemRoom" >
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-        </activity>
-        <activity android:name=".XML.CreateItemTable" >
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-        </activity>
-        <activity android:name=".XML.MyItemScreen" />
-        <activity android:name=".XML.CreateItemEvent" />
+        <activity android:name=".Test.Test"  />
         <activity android:name=".XML.BookingScreen" />
         <activity android:name=".Java.CreateEventScreen" />
         <activity android:name=".Java.CreateRoomScreen" />

@@ -50,8 +50,8 @@ public class Status extends Fragment implements View.OnClickListener {
         @Override
         public void onItemClick(DataItemBookingRoom.DataItemRoom dataItemRoom) {
 //            System.out.print("click");
-            BTSDataDetail btsDataStatus = new BTSDataDetail(context);
-            btsDataStatus.show(getFragmentManager(), BTSDataDetail.class.getSimpleName());
+//            BTSDataDetail btsDataStatus = new BTSDataDetail(context);
+//            btsDataStatus.show(getFragmentManager(), BTSDataDetail.class.getSimpleName());
 
         }
 
@@ -76,7 +76,7 @@ public class Status extends Fragment implements View.OnClickListener {
 
         AdapterTableStatus recyclerAdapterStatus = new AdapterTableStatus(dataItemRooms);
 
-        recyclerView.setAdapter(recyclerAdapterStatus);
+//        recyclerView.setAdapter(recyclerAdapterStatus);
 
         AdapterTableStatus recyclerAdapterStatus1 = new AdapterTableStatus(dataItemRooms);
         recyclerAdapterStatus.setBookinglistener(bookingListener);

@@ -10,15 +10,20 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kessseller.Data.DataRecyclerViewBooking;
+import com.example.kessseller.Listener.DetailListener;
 import com.example.kessseller.R;
 
 import java.util.List;
 
 public class RecyclerAdapterBooking extends RecyclerView.Adapter<RecyclerAdapterBooking.DataViewHolder> {
     List<DataRecyclerViewBooking.DataRecycler> datas;
+    DetailListener detailListener;
     public RecyclerAdapterBooking(List<DataRecyclerViewBooking.DataRecycler> datas) {
         this.datas=datas;
 
+    }
+    public void setDetailListener(DetailListener detailListener){
+        this.detailListener = detailListener;
     }
 
 
@@ -31,7 +36,7 @@ public class RecyclerAdapterBooking extends RecyclerView.Adapter<RecyclerAdapter
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DataViewHolder dataViewHolder, int position) {
+    public void onBindViewHolder(@NonNull DataViewHolder dataViewHolder, final int position) {
         dataViewHolder.dataName.setText(datas.get(position).user);
         dataViewHolder.dataDate.setText(datas.get(position).date);
         dataViewHolder.dataTime.setText(datas.get(position).bookingdate);
@@ -40,6 +45,14 @@ public class RecyclerAdapterBooking extends RecyclerView.Adapter<RecyclerAdapter
         dataViewHolder.dataPayment.setText(datas.get(position).payment_method);
         dataViewHolder.dataDeposit.setText(datas.get(position).deposit_price);
         dataViewHolder.datafilter.setText(datas.get(position).filter_type);
+        dataViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(detailListener != null){
+                    detailListener.onItemClick(datas.get(position));
+                }
+            }
+        });
     }
 
     @Override

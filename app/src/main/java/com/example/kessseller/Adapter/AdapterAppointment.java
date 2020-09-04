@@ -12,17 +12,23 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.kessseller.Data.DataItemAppointment;
 import com.example.kessseller.Data.DataItemBookingRoom;
 import com.example.kessseller.Data.DataViewAppointment;
+import com.example.kessseller.Listener.BookingListener;
+import com.example.kessseller.Listener.ClickDetailRequestDoctor;
 import com.example.kessseller.R;
 
 import java.util.List;
 
 public class AdapterAppointment extends RecyclerView.Adapter<AdapterAppointment.DataViewHolder> {
     List<DataViewAppointment.DataAppointment> dataAppointments;
+    private ClickDetailRequestDoctor clickDetailRequestDoctor;
+
+    public void setClickDetailRequestDoctor(ClickDetailRequestDoctor clickDetailRequestDoctor){
+        this.clickDetailRequestDoctor = clickDetailRequestDoctor;
+    }
     public AdapterAppointment(List<DataViewAppointment.DataAppointment> dataAppointments) {
         this.dataAppointments=dataAppointments;
 
     }
-
 
     @NonNull
     @Override
@@ -33,7 +39,7 @@ public class AdapterAppointment extends RecyclerView.Adapter<AdapterAppointment.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DataViewHolder dataViewHolder, int position) {
+    public void onBindViewHolder(@NonNull DataViewHolder dataViewHolder, final int position) {
         dataViewHolder.dataUsername.setText(dataAppointments.get(position).username);
         dataViewHolder.dataDateRequest.setText(dataAppointments.get(position).daterequest);
         dataViewHolder.dataDate.setText(dataAppointments.get(position).appointment_date);
@@ -42,6 +48,14 @@ public class AdapterAppointment extends RecyclerView.Adapter<AdapterAppointment.
         dataViewHolder.dataDoctorSkill.setText(dataAppointments.get(position).appointment_skill);
         dataViewHolder.dataChoiceFilter.setText(dataAppointments.get(position).choice_filter);
 
+        dataViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(clickDetailRequestDoctor != null){
+                    clickDetailRequestDoctor.itemClickdetailDoctor(dataAppointments.get(position));
+                }
+            }
+        });
     }
 
 
