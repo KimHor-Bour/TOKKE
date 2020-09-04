@@ -16,8 +16,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kessseller.Adapter.AdapterDataType;
+import com.example.kessseller.Adapter.AdapterMyItemRoom;
+import com.example.kessseller.Data.DataItemBookingRoom;
 import com.example.kessseller.Data.DataMyItemTab;
-import com.example.kessseller.Java.TabTypeItem;
+import com.example.kessseller.Java.CreateEventScreen;
+import com.example.kessseller.Java.CreateRoomScreen;
+import com.example.kessseller.Java.CreateTableScreen;
+import com.example.kessseller.Listener.TabListener;
 import com.example.kessseller.R;
 
 import java.util.List;
@@ -27,19 +32,42 @@ public class MyItemScreen extends Fragment{
      private  Context context;
     RecyclerView recyclerView;
     List<DataMyItemTab.DataType> dataTypes;
+    List<DataItemBookingRoom.DataItemRoom> dataItemRooms;
+
+
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.my_items,container,false);
+        final View view = inflater.inflate(R.layout.my_items,container,false);
 
         DataMyItemTab dataTypeItem = new DataMyItemTab();
         dataTypes = dataTypeItem.getData_type();
         recyclerView = view.findViewById(R.id.tab_type);
         AdapterDataType adapterDataType = new AdapterDataType(dataTypes);
-
         recyclerView.setAdapter(adapterDataType);
+
+
+        DataItemBookingRoom dataItemBookingRoom = new DataItemBookingRoom();
+        dataItemRooms = dataItemBookingRoom.getData_roomitem();
+        recyclerView = view.findViewById(R.id.data_type);
+        AdapterMyItemRoom adapterMyItemRoom = new AdapterMyItemRoom(dataItemRooms);
+        recyclerView.setAdapter(adapterMyItemRoom);
+
+
+        TabListener tabListener = new TabListener() {
+            @Override
+            public void TabClick(DataMyItemTab.DataType dataType) {
+//                DataItemBookingRoom dataItemBookingRoom = new DataItemBookingRoom();
+//                dataItemRooms = dataItemBookingRoom.getData_roomitem();
+//                recyclerView = view.findViewById(R.id.data_type);
+//                AdapterMyItemRoom adapterMyItemRoom = new AdapterMyItemRoom(dataItemRooms);
+//                recyclerView.setAdapter(adapterMyItemRoom);
+
+            }
+        };
+
 
         linearLayout = view.findViewById(R.id.add_item);
         linearLayout.setOnClickListener(new View.OnClickListener() {
@@ -54,13 +82,13 @@ public class MyItemScreen extends Fragment{
                             case 0:
                                 break;
                             case 1:
-                                startActivity(new Intent(getActivity(), CreateTableScreen.class));
+                                startActivity(new Intent(context, CreateTableScreen.class));
                                 break;
                             case 2:
-                                startActivity(new Intent(getActivity(), CreateRoomScreen.class));
+                                startActivity(new Intent(context, CreateRoomScreen.class));
                                 break;
                             case 3:
-                                startActivity(new Intent(getActivity(), CreateEventScreen.class));
+                                startActivity(new Intent(context, CreateEventScreen.class));
                                 break;
                         }
                     }

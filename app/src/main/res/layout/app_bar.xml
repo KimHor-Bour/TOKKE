@@ -45,10 +45,6 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
 
         />
-    <include
-        android:layout_height="wrap_content"
-        layout="@layout/bottom_bar_user"
-        android:layout_width="match_parent" />
 
 
 </LinearLayout>

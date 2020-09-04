@@ -71,6 +71,9 @@
         <activity android:name=".XML.MyItemScreen" />
         <activity android:name=".XML.CreateItemEvent" />
         <activity android:name=".XML.BookingScreen" />
+        <activity android:name=".Java.CreateEventScreen" />
+        <activity android:name=".Java.CreateRoomScreen" />
+        <activity android:name=".Java.CreateTableScreen" />
 
     </application>
 
