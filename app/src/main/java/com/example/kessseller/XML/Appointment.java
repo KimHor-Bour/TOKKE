@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +29,7 @@ import com.example.kessseller.Listener.ClickDetailRequestDoctor;
 import com.example.kessseller.R;
 
 import java.util.List;
+import java.util.zip.Inflater;
 
 public class Appointment extends DialogFragment {
     LinearLayout linearLayout;
@@ -39,11 +41,16 @@ public class Appointment extends DialogFragment {
 
     List<DataViewAppointment.DataAppointment>dataAppointments;
 
+    @Override
+    public int getTheme() {
+        return R.style.AppBottomSheetDialogTheme;
+    }
+
     private ClickDetailRequestDoctor clickDetailRequestDoctor = new ClickDetailRequestDoctor() {
         @Override
         public void itemClickdetailDoctor(DataViewAppointment.DataAppointment dataAppointment) {
+            getTheme();
             BTSRequestDoctor btsRequestDoctor = new BTSRequestDoctor(context);
-
             btsRequestDoctor.show(getFragmentManager(), BTSRequestDoctor.class.getSimpleName());
         }
     };

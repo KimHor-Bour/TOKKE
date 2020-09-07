@@ -10,16 +10,22 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kessseller.Data.DataItemBookingRoom;
+import com.example.kessseller.Listener.BookingListener;
 import com.example.kessseller.R;
 
 import java.util.List;
 
 public class AdapterMyItemRoom extends RecyclerView.Adapter<AdapterMyItemRoom.DataViewHolder> {
     List<DataItemBookingRoom.DataItemRoom> dataItemRooms;
+    BookingListener bookingListener;
     public AdapterMyItemRoom(List<DataItemBookingRoom.DataItemRoom> dataItemRooms) {
         this.dataItemRooms=dataItemRooms;
 
     }
+    public void setBookinglistener(BookingListener bookinglistener) {
+        this.bookingListener = bookinglistener;
+    }
+
 
 
     @NonNull
@@ -31,13 +37,21 @@ public class AdapterMyItemRoom extends RecyclerView.Adapter<AdapterMyItemRoom.Da
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DataViewHolder dataViewHolder, int position) {
+    public void onBindViewHolder(@NonNull DataViewHolder dataViewHolder, final int position) {
         dataViewHolder.dataRoomNum.setText(dataItemRooms.get(position).room_number);
         dataViewHolder.dataRoomNumPeople.setText(dataItemRooms.get(position).room_num_people);
 //        dataViewHolder.dataFloor.setText(dataItemTables.get(position).floor);
         dataViewHolder.dataRoomPrice.setText(dataItemRooms.get(position).room_price);
         dataViewHolder.dataRoomSpecialPrice.setText(dataItemRooms.get(position).room_specialprice);
         dataViewHolder.dataDepositRoom.setText(dataItemRooms.get(position).room_deposit);
+        dataViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (bookingListener!= null){
+                    bookingListener.onItemClick(dataItemRooms.get(position));
+                }
+            }
+        });
 
     }
 

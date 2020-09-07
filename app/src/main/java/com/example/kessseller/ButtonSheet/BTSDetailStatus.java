@@ -14,16 +14,19 @@ import com.example.kessseller.R;
 import com.github.florent37.singledateandtimepicker.SingleDateAndTimePicker;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-public class BTSCreateITemTable extends BottomSheetDialogFragment {
+public class BTSDetailStatus extends BottomSheetDialogFragment {
     private Context context;
-    public BTSCreateITemTable (Context context){
+    public BTSDetailStatus(Context context){
         this.context = context;
     };
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.choose_create_item,container,false);
+        View view = inflater.inflate(R.layout.detail_type_booking,container,false);
+
+
+
         return view;
     }
 

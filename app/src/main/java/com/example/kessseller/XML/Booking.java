@@ -24,12 +24,12 @@ import com.example.kessseller.ButtonSheet.BTSDataDetail;
 import com.example.kessseller.Listener.BookingListener;
 import com.example.kessseller.Listener.DetailListener;
 import com.example.kessseller.R;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.util.Date;
 import java.util.List;
 public class Booking extends DialogFragment implements View.OnClickListener {
-    LinearLayout linearLayout;
-    AlertDialog alertDialog;
+    View view;
     String[] values = {"All","Booking Request","Booking List","Completed","Cancelled","Booking History",};
     TextView textView;
     List<DataRecyclerViewBooking.DataRecycler> datas;
@@ -47,7 +47,7 @@ public class Booking extends DialogFragment implements View.OnClickListener {
         public void onItemClick(DataRecyclerViewBooking.DataRecycler dataRecycler) {
             BTSDataDetail btsDataStatus = new BTSDataDetail(context);
             btsDataStatus.show(getFragmentManager(), BTSDataDetail.class.getSimpleName());
-        }
+                    }
     };
 
     @Nullable
@@ -70,8 +70,8 @@ public class Booking extends DialogFragment implements View.OnClickListener {
         recyclerView.setAdapter(recyclerAdapter);
         recyclerAdapter.setDetailListener(detailListener);
 
-        linearLayout = (LinearLayout)rootView.findViewById(R.id.filterbtn);
-        linearLayout.setOnClickListener(new View.OnClickListener() {
+        view = (LinearLayout)rootView.findViewById(R.id.filterbtn);
+        view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onCreateDialog(savedInstanceState);
@@ -88,13 +88,12 @@ public class Booking extends DialogFragment implements View.OnClickListener {
         builder.setSingleChoiceItems(values,-1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                textView.setText(values[0]);
                 TextView txt = (TextView)getActivity().findViewById(R.id.txtfilter);
                 txt.setText(values[i]);
                 dialogInterface.dismiss();
             };
         });
-//        builder.create();
+        builder.create();
         return builder.show();
     }
     @Override

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background= "#E5E4E2">
+    android:background= "@drawable/border_radius_top">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -19,6 +19,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/border_radius_top"
+                android:elevation="3dp"
                 android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,6 +27,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
                     android:id="@+id/tb1"
+                    android:background="@drawable/border_bacground_white"
                     >
                     <TextView
                         android:layout_marginTop="7dp"
@@ -40,6 +42,7 @@
                         android:gravity="left"/>
 
                     <ImageView
+                        android:id="@+id/btn_cross"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_alignParentEnd="true"
@@ -129,10 +132,12 @@
 
             //Comment
             <LinearLayout
+
                 android:layout_marginTop="7dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border_shadow_coner"
+                android:background="@drawable/border_bacground_white"
+                android:elevation="3dp"
                 android:orientation="vertical">
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="wrap_content"
@@ -170,7 +175,8 @@
                 android:layout_marginTop="7dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border_shadow_coner"
+                android:elevation="3dp"
+                android:background="@drawable/border_bacground_white"
                 android:orientation="vertical">
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="wrap_content"
@@ -218,10 +224,12 @@
 
             // Address
             <LinearLayout
+                android:layout_marginBottom="20dp"
                 android:layout_marginTop="7dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border_shadow_coner"
+                android:background="@drawable/border_bacground_white"
+                android:elevation="3dp"
                 android:orientation="vertical">
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="wrap_content"

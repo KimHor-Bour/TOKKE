@@ -17,8 +17,8 @@ import androidx.fragment.app.Fragment;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.kessseller.ButtonSheet.BTSDetailStatus;
 import com.example.kessseller.Data.DataItemBookingRoom;
-import com.example.kessseller.Data.DataRecyclerViewBooking;
 import com.example.kessseller.ButtonSheet.BTSDataDetail;
 import com.example.kessseller.Listener.BookingListener;
 import com.example.kessseller.ButtonSheet.BTSDateandTime;
@@ -50,8 +50,9 @@ public class Status extends Fragment implements View.OnClickListener {
         @Override
         public void onItemClick(DataItemBookingRoom.DataItemRoom dataItemRoom) {
 //            System.out.print("click");
-//            BTSDataDetail btsDataStatus = new BTSDataDetail(context);
-//            btsDataStatus.show(getFragmentManager(), BTSDataDetail.class.getSimpleName());
+            BTSDetailStatus btsDetailStatus = new BTSDetailStatus(context);
+            btsDetailStatus.show(getFragmentManager(), BTSDetailStatus
+                    .class.getSimpleName());
 
         }
 

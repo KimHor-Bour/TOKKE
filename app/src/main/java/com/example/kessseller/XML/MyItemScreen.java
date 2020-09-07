@@ -17,14 +17,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kessseller.Adapter.AdapterDataType;
 import com.example.kessseller.Adapter.AdapterMyItemRoom;
+import com.example.kessseller.ButtonSheet.BTSDetailStatus;
 import com.example.kessseller.Data.DataItemBookingRoom;
 import com.example.kessseller.Data.DataMyItemTab;
 import com.example.kessseller.Java.CreateEventScreen;
 import com.example.kessseller.Java.CreateRoomScreen;
 import com.example.kessseller.Java.CreateTableScreen;
+import com.example.kessseller.Listener.BookingListener;
 import com.example.kessseller.Listener.TabListener;
 import com.example.kessseller.R;
 
+import java.util.Date;
 import java.util.List;
 
 public class MyItemScreen extends Fragment{
@@ -34,7 +37,18 @@ public class MyItemScreen extends Fragment{
     List<DataMyItemTab.DataType> dataTypes;
     List<DataItemBookingRoom.DataItemRoom> dataItemRooms;
 
+    private BookingListener bookingListener = new BookingListener() {
+        @Override
+        public void onItemClick(DataItemBookingRoom.DataItemRoom dataItemRoom) {
+            BTSDetailStatus btsDetailStatus =new BTSDetailStatus(context);
+            btsDetailStatus.show(getFragmentManager(),BTSDetailStatus.class.getSimpleName());
+        }
 
+        @Override
+        public void onAccept(Date date) {
+
+        }
+    };
 
 
     @Nullable
@@ -53,6 +67,7 @@ public class MyItemScreen extends Fragment{
         dataItemRooms = dataItemBookingRoom.getData_roomitem();
         recyclerView = view.findViewById(R.id.data_type);
         AdapterMyItemRoom adapterMyItemRoom = new AdapterMyItemRoom(dataItemRooms);
+        adapterMyItemRoom.setBookinglistener(bookingListener);
         recyclerView.setAdapter(adapterMyItemRoom);
 
 
