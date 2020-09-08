@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.kessseller.Adapter.AdapterOfItemEvent;
+import com.example.kessseller.Adapter.AdapterMyItemEvent;
 import com.example.kessseller.Data.DataItemBookingEvent;
 import com.example.kessseller.R;
 
@@ -35,7 +35,7 @@ public class MyItemDataEvent extends Fragment {
 
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        AdapterOfItemEvent adapterOfItemEvent = new AdapterOfItemEvent(dataItemEvents);
+        AdapterMyItemEvent adapterOfItemEvent = new AdapterMyItemEvent(dataItemEvents);
         recyclerView.setAdapter(adapterOfItemEvent);
         return view;
 

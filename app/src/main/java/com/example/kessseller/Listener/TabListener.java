@@ -1,7 +1,7 @@
 package com.example.kessseller.Listener;
 
-import com.example.kessseller.Data.DataMyItemTab;
+import com.example.kessseller.Data.DataMyItemTabBooking;
 
 public interface TabListener {
-    void TabClick(DataMyItemTab.DataType dataType);
+    void TabClick(DataMyItemTabBooking.DataType dataType);
 }

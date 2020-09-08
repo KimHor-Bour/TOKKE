@@ -3,7 +3,7 @@ package com.example.kessseller.Data;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataMyItemTab {
+public class DataMyItemTabBooking {
     public static class DataType{
         //data items of table
 //        public String img_table;
@@ -18,7 +18,7 @@ public class DataMyItemTab {
             return type_item;
         }
     }
-    public DataMyItemTab(){
+    public DataMyItemTabBooking(){
         initDataType();
     }
 
@@ -29,7 +29,7 @@ public class DataMyItemTab {
         dataTypes.add(new DataType("Product"));
         dataTypes.add(new DataType("Table"));
         dataTypes.add(new DataType("Room"));
-        dataTypes.add(new DataType("Event"));
+//        dataTypes.add(new DataType("Event"));
     }
     public List<DataType> getData_type(){return  dataTypes;}
 

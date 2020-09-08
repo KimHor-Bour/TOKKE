@@ -10,4 +10,5 @@
     <color name="colorBlur">#f5f5f5</color>
     <color name="colorGrey">#B6B6B4</color>
     <color name="colorPink">#FF33BE</color>
+    <color name="colorblurGrey">#f2f2f7</color>
 </resources>

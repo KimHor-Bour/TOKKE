@@ -123,7 +123,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
-                        android:paddingStart="10dp"
+                        android:paddingStart="5dp"
                         android:hint="Event Price"
                         android:id="@+id/event_price"
                         android:layout_width="wrap_content"

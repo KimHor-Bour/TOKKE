@@ -17,16 +17,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.example.kessseller.Data.DataItemBookingRoom;
 import com.example.kessseller.Data.DataRecyclerViewBooking;
 import com.example.kessseller.Adapter.RecyclerAdapterBooking;
-import com.example.kessseller.ButtonSheet.BTSDataDetail;
-import com.example.kessseller.Listener.BookingListener;
+import com.example.kessseller.ButtonSheet.BTSDataDetailBooking;
 import com.example.kessseller.Listener.DetailListener;
 import com.example.kessseller.R;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
-import java.util.Date;
 import java.util.List;
 public class Booking extends DialogFragment implements View.OnClickListener {
     View view;
@@ -45,8 +41,8 @@ public class Booking extends DialogFragment implements View.OnClickListener {
     private DetailListener detailListener = new DetailListener() {
         @Override
         public void onItemClick(DataRecyclerViewBooking.DataRecycler dataRecycler) {
-            BTSDataDetail btsDataStatus = new BTSDataDetail(context);
-            btsDataStatus.show(getFragmentManager(), BTSDataDetail.class.getSimpleName());
+            BTSDataDetailBooking btsDataStatus = new BTSDataDetailBooking(context);
+            btsDataStatus.show(getFragmentManager(), BTSDataDetailBooking.class.getSimpleName());
                     }
     };
 

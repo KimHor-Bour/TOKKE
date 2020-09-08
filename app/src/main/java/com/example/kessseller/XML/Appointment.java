@@ -4,32 +4,26 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kessseller.Adapter.AdapterAppointment;
-import com.example.kessseller.ButtonSheet.BTSDataDetail;
-import com.example.kessseller.ButtonSheet.BTSRequestDoctor;
-import com.example.kessseller.Data.DataItemAppointment;
+import com.example.kessseller.ButtonSheet.BTSDataDetailAppointment;
 import com.example.kessseller.Data.DataViewAppointment;
 import com.example.kessseller.Listener.ClickDetailRequestDoctor;
 import com.example.kessseller.R;
 
 import java.util.List;
-import java.util.zip.Inflater;
 
 public class Appointment extends DialogFragment {
     LinearLayout linearLayout;
@@ -50,8 +44,8 @@ public class Appointment extends DialogFragment {
         @Override
         public void itemClickdetailDoctor(DataViewAppointment.DataAppointment dataAppointment) {
             getTheme();
-            BTSRequestDoctor btsRequestDoctor = new BTSRequestDoctor(context);
-            btsRequestDoctor.show(getFragmentManager(), BTSRequestDoctor.class.getSimpleName());
+            BTSDataDetailAppointment btsRequestDoctor = new BTSDataDetailAppointment(context);
+            btsRequestDoctor.show(getFragmentManager(), BTSDataDetailAppointment.class.getSimpleName());
         }
     };
     @Nullable

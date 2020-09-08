@@ -9,39 +9,45 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.kessseller.Adapter.AdapterDataType;
+import com.example.kessseller.Adapter.AdapterMyItemBookingTab;
 import com.example.kessseller.Adapter.AdapterMyItemRoom;
-import com.example.kessseller.ButtonSheet.BTSDetailStatus;
+import com.example.kessseller.ButtonSheet.BTSDetailItemBooking;
 import com.example.kessseller.Data.DataItemBookingRoom;
-import com.example.kessseller.Data.DataMyItemTab;
+import com.example.kessseller.Data.DataMyItemTabBooking;
 import com.example.kessseller.Java.CreateEventScreen;
 import com.example.kessseller.Java.CreateRoomScreen;
 import com.example.kessseller.Java.CreateTableScreen;
 import com.example.kessseller.Listener.BookingListener;
-import com.example.kessseller.Listener.TabListener;
 import com.example.kessseller.R;
 
 import java.util.Date;
 import java.util.List;
 
-public class MyItemScreen extends Fragment{
+public class MyItemScreenBooking extends Fragment{
     LinearLayout linearLayout;
      private  Context context;
     RecyclerView recyclerView;
-    List<DataMyItemTab.DataType> dataTypes;
+    List<DataMyItemTabBooking.DataType> dataTypes;
     List<DataItemBookingRoom.DataItemRoom> dataItemRooms;
+    View bgColor;
 
     private BookingListener bookingListener = new BookingListener() {
         @Override
         public void onItemClick(DataItemBookingRoom.DataItemRoom dataItemRoom) {
-            BTSDetailStatus btsDetailStatus =new BTSDetailStatus(context);
-            btsDetailStatus.show(getFragmentManager(),BTSDetailStatus.class.getSimpleName());
+            BTSDetailItemBooking btsDetailStatus =new BTSDetailItemBooking(context);
+            btsDetailStatus.show(getFragmentManager(), BTSDetailItemBooking.class.getSimpleName());
+        }
+
+        @Override
+        public void onTabClick(DataMyItemTabBooking.DataType dataType) {
+            Toast.makeText(context, dataType.getType_item(),Toast.LENGTH_LONG).show();
         }
 
         @Override
@@ -56,10 +62,11 @@ public class MyItemScreen extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.my_items,container,false);
 
-        DataMyItemTab dataTypeItem = new DataMyItemTab();
+        DataMyItemTabBooking dataTypeItem = new DataMyItemTabBooking();
         dataTypes = dataTypeItem.getData_type();
         recyclerView = view.findViewById(R.id.tab_type);
-        AdapterDataType adapterDataType = new AdapterDataType(dataTypes);
+        AdapterMyItemBookingTab adapterDataType = new AdapterMyItemBookingTab(dataTypes);
+        adapterDataType.setBookinglistener(bookingListener);
         recyclerView.setAdapter(adapterDataType);
 
 
@@ -70,20 +77,7 @@ public class MyItemScreen extends Fragment{
         adapterMyItemRoom.setBookinglistener(bookingListener);
         recyclerView.setAdapter(adapterMyItemRoom);
 
-
-        TabListener tabListener = new TabListener() {
-            @Override
-            public void TabClick(DataMyItemTab.DataType dataType) {
-//                DataItemBookingRoom dataItemBookingRoom = new DataItemBookingRoom();
-//                dataItemRooms = dataItemBookingRoom.getData_roomitem();
-//                recyclerView = view.findViewById(R.id.data_type);
-//                AdapterMyItemRoom adapterMyItemRoom = new AdapterMyItemRoom(dataItemRooms);
-//                recyclerView.setAdapter(adapterMyItemRoom);
-
-            }
-        };
-
-
+//        bgColor=view.findViewById(R.id.ll1);
         linearLayout = view.findViewById(R.id.add_item);
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override

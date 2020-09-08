@@ -38,7 +38,6 @@ public class AdapterTableStatus extends RecyclerView.Adapter<AdapterTableStatus.
     public void onBindViewHolder(@NonNull DataViewHolder holder, final int position) {
         holder.dataNumId.setText(dataItemRooms.get(position).room_number);
         holder.dataNumPeople.setText(dataItemRooms.get(position).room_num_people);
-//        holder.dataNumFloor.setText(dataItemRooms.get(position).room_floor);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

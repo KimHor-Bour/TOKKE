@@ -14,9 +14,9 @@ import com.example.kessseller.R;
 import com.github.florent37.singledateandtimepicker.SingleDateAndTimePicker;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-public class BTSDetailStatus extends BottomSheetDialogFragment {
+public class BTSDetailItemBooking extends BottomSheetDialogFragment {
     private Context context;
-    public BTSDetailStatus(Context context){
+    public BTSDetailItemBooking(Context context){
         this.context = context;
     };
 

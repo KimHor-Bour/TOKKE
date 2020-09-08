@@ -17,9 +17,10 @@ import androidx.fragment.app.Fragment;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.kessseller.ButtonSheet.BTSDetailStatus;
+import com.example.kessseller.ButtonSheet.BTSDetailItemBooking;
 import com.example.kessseller.Data.DataItemBookingRoom;
-import com.example.kessseller.ButtonSheet.BTSDataDetail;
+import com.example.kessseller.ButtonSheet.BTSDataDetailBooking;
+import com.example.kessseller.Data.DataMyItemTabBooking;
 import com.example.kessseller.Listener.BookingListener;
 import com.example.kessseller.ButtonSheet.BTSDateandTime;
 import com.example.kessseller.Adapter.AdapterTableStatus;
@@ -35,7 +36,7 @@ public class Status extends Fragment implements View.OnClickListener {
     TextView textView;
     List<DataItemBookingRoom.DataItemRoom> dataItemRooms;
     View clickitem;
-    BTSDataDetail btsDataStatus;
+    BTSDataDetailBooking btsDataStatus;
     //    RecyclerAdapter recyclerAdapter;
     RecyclerView recyclerView;
     Context context;
@@ -50,9 +51,13 @@ public class Status extends Fragment implements View.OnClickListener {
         @Override
         public void onItemClick(DataItemBookingRoom.DataItemRoom dataItemRoom) {
 //            System.out.print("click");
-            BTSDetailStatus btsDetailStatus = new BTSDetailStatus(context);
-            btsDetailStatus.show(getFragmentManager(), BTSDetailStatus
+            BTSDetailItemBooking btsDetailStatus = new BTSDetailItemBooking(context);
+            btsDetailStatus.show(getFragmentManager(), BTSDetailItemBooking
                     .class.getSimpleName());
+        }
+
+        @Override
+        public void onTabClick(DataMyItemTabBooking.DataType dataType) {
 
         }
 

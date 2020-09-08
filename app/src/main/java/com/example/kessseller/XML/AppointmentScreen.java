@@ -1,6 +1,5 @@
 package com.example.kessseller.XML;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -38,7 +37,7 @@ public class AppointmentScreen extends AppCompatActivity implements BottomNaviga
                 break;
 
             case R.id.navi_myitems:
-                fragment = new MyItemScreen();
+                fragment = new MyItemScreenAppointment();
                 break;
 
             case R.id.navi_cupon:

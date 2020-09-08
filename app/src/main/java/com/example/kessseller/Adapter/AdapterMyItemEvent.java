@@ -14,9 +14,9 @@ import com.example.kessseller.R;
 
 import java.util.List;
 
-public class AdapterOfItemEvent extends RecyclerView.Adapter<AdapterOfItemEvent.DataViewHolder> {
+public class AdapterMyItemEvent extends RecyclerView.Adapter<AdapterMyItemEvent.DataViewHolder> {
     List<DataItemBookingEvent.DataItemEvent> dataItemEvents;
-    public AdapterOfItemEvent(List<DataItemBookingEvent.DataItemEvent> dataItemEvents) {
+    public AdapterMyItemEvent(List<DataItemBookingEvent.DataItemEvent> dataItemEvents) {
         this.dataItemEvents=dataItemEvents;
 
     }

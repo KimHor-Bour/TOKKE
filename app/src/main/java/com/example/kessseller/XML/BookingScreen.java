@@ -8,6 +8,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.kessseller.Java.MyItemDataDoctor;
+import com.example.kessseller.Java.MyItemDataEvent;
 import com.example.kessseller.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -38,14 +40,14 @@ public class BookingScreen extends AppCompatActivity implements BottomNavigation
                 break;
 
             case R.id.navi_myitems:
-                fragment = new MyItemScreen();
+                fragment = new MyItemScreenBooking();
                 break;
 
             case R.id.navi_cupon:
-                fragment = new Order();
+                fragment = new MyItemDataDoctor();
                 break;
             case R.id.navi_account:
-                fragment = new Order();
+                fragment = new MyItemDataEvent();
                 break;
         }
 
