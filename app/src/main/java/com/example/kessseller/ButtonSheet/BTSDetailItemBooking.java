@@ -1,5 +1,6 @@
 package com.example.kessseller.ButtonSheet;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +13,8 @@ import androidx.annotation.Nullable;
 
 import com.example.kessseller.R;
 import com.github.florent37.singledateandtimepicker.SingleDateAndTimePicker;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class BTSDetailItemBooking extends BottomSheetDialogFragment {
@@ -20,24 +23,16 @@ public class BTSDetailItemBooking extends BottomSheetDialogFragment {
         this.context = context;
     };
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.detail_type_booking,container,false);
+    BottomSheetBehavior bottomSheetBehavior;
 
+    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+        BottomSheetDialog bottomSheetDialog = (BottomSheetDialog) super.onCreateDialog(savedInstanceState);
+        View view = View.inflate(getContext(), R.layout.detail_type_booking,null);
 
+        bottomSheetDialog.setContentView(view);
 
-        return view;
+        bottomSheetBehavior= BottomSheetBehavior.from((View) (view.getParent()));
+        bottomSheetBehavior.setPeekHeight(BottomSheetBehavior.SAVE_ALL);
+        return bottomSheetDialog;
     }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-    }
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-    }
-
 }

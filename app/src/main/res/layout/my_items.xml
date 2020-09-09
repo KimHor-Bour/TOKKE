@@ -134,45 +134,58 @@
             android:orientation="vertical">
             <LinearLayout
                 android:layout_margin="3dp"
-                android:padding="5dp"
+                android:padding="2dp"
                 android:layout_gravity="center"
-                android:gravity="center"
+                android:gravity="left"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorblurGrey">
-                <TextView
-                    android:id="@+id/item_type_show"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="12dp"
-                    android:text="Table"/>
-                <TextView
-                    android:textSize="12dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" ("/>
-                <TextView
-                    android:textSize="12dp"
-                    android:id="@+id/count_item"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1"/>
-                <TextView
-                    android:textSize="12dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="/"/>
-                <TextView
-                    android:textSize="12dp"
-                    android:id="@+id/count_item_total"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1"/>
-                <TextView
-                    android:textSize="12dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=")"/>
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    >
+                    <View
+                        android:layout_marginEnd="8dp"
+                        android:layout_gravity="left"
+                        android:layout_width="4dp"
+                        android:layout_height="20dp"
+                        android:background="@color/colorPurplePink"/>
+                    <TextView
+                        android:id="@+id/item_type_show"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12dp"
+                        android:text="Table"/>
+                    <TextView
+                        android:textSize="12dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" ("/>
+                    <TextView
+                        android:textSize="12dp"
+                        android:id="@+id/count_item"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"/>
+                    <TextView
+                        android:textSize="12dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="/"/>
+                    <TextView
+                        android:textSize="12dp"
+                        android:id="@+id/count_item_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"/>
+                    <TextView
+                        android:textSize="12dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=")"/>
+                </LinearLayout>
             </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/data_type"

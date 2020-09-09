@@ -1,5 +1,6 @@
 package com.example.kessseller.Adapter;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,13 +21,19 @@ import com.example.kessseller.R;
 import java.util.List;
 
 import static android.media.CamcorderProfile.get;
+import static android.media.CamcorderProfile.hasProfile;
 
 public class AdapterMyItemAppointmentTab extends RecyclerView.Adapter<AdapterMyItemAppointmentTab.DataViewHolder> {
     List<DataMyItemTabAppointment.DataTabAppointment> dataTabAppointments;
     AppointmentListener appointmentListener;
     LinearLayout linearLayout;
-    public AdapterMyItemAppointmentTab(List<DataMyItemTabAppointment.DataTabAppointment> dataTabAppointments) {
+    Context context;
+    private int selectedTab;
+    private static int lastClickedPosition = -1;
+    public AdapterMyItemAppointmentTab(List<DataMyItemTabAppointment.DataTabAppointment> dataTabAppointments, Context context) {
         this.dataTabAppointments=dataTabAppointments;
+        this.context = context;
+        selectedTab = 0;
 
     }
     public void setAppointmentListener(AppointmentListener appointmentListener) {
@@ -46,13 +53,22 @@ public class AdapterMyItemAppointmentTab extends RecyclerView.Adapter<AdapterMyI
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DataViewHolder dataViewHolder, final int position) {
+    public void onBindViewHolder(@NonNull final DataViewHolder dataViewHolder, final int position) {
         dataViewHolder.datatype.setText(dataTabAppointments.get(position).type_item);
+
+        dataViewHolder.view.setBackgroundColor(context.getResources().getColor(R.color.colorblurGrey));
+        if(selectedTab == position){
+            dataViewHolder.view.setBackgroundColor(context.getResources().getColor(R.color.colorWhite));
+        }
         dataViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (appointmentListener != null) {
-                    linearLayout.setBackgroundColor(Color.parseColor("#ffffff"));
+                int previoustab = selectedTab;
+                selectedTab = position;
+                notifyItemChanged(previoustab);
+                notifyItemChanged(position);
+
+                if (appointmentListener != null){
                     appointmentListener.onClickTab(dataTabAppointments.get(position));
 
                 }

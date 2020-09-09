@@ -1,5 +1,6 @@
 package com.example.kessseller.Adapter;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,8 +24,13 @@ public class AdapterMyItemBookingTab extends RecyclerView.Adapter<AdapterMyItemB
     List<DataMyItemTabBooking.DataType> dataTypes;
     BookingListener bookingListener;
     LinearLayout linearLayout;
-    public AdapterMyItemBookingTab(List<DataMyItemTabBooking.DataType> dataTypes) {
+    private int selectedTabBooking;
+    Context context;
+
+    public AdapterMyItemBookingTab(List<DataMyItemTabBooking.DataType> dataTypes,Context context) {
         this.dataTypes=dataTypes;
+        this.context = context;
+        selectedTabBooking = 0;
 
     }
     public void setBookinglistener(BookingListener bookinglistener) {
@@ -46,11 +52,21 @@ public class AdapterMyItemBookingTab extends RecyclerView.Adapter<AdapterMyItemB
     @Override
     public void onBindViewHolder(@NonNull DataViewHolder dataViewHolder, final int position) {
         dataViewHolder.datatype.setText(dataTypes.get(position).type_item);
+        dataViewHolder.view1.setBackgroundColor(context.getResources().getColor(R.color.colorblurGrey));
+         if(selectedTabBooking == position){
+             dataViewHolder.view1.setBackgroundColor(context.getResources().getColor(R.color.colorWhite));
+         }
+
         dataViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                int previousTabBooking = selectedTabBooking;
+                selectedTabBooking = position;
+                notifyItemChanged(previousTabBooking);
+                notifyItemChanged(selectedTabBooking);
+
                 if (bookingListener != null) {
-                    linearLayout.setBackgroundColor(Color.parseColor("#ffffff"));
                     bookingListener.onTabClick(dataTypes.get(position));
 
                 }
@@ -70,11 +86,11 @@ public class AdapterMyItemBookingTab extends RecyclerView.Adapter<AdapterMyItemB
     }
 
     public static class DataViewHolder extends RecyclerView.ViewHolder {
-        View view;
+        View view1;
         TextView datatype;
         DataViewHolder(View itemView){
             super(itemView);
-            view = (View) itemView.findViewById(R.id.ll1);
+            view1 = (View) itemView.findViewById(R.id.ll1);
             datatype = (TextView)itemView.findViewById(R.id.text_type);
 
         }

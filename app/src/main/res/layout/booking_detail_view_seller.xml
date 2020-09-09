@@ -82,13 +82,15 @@
                   <androidx.constraintlayout.widget.ConstraintLayout
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
-                      android:layout_margin="8dp"
+                      android:layout_marginStart="8dp"
+                      android:layout_marginBottom="8dp"
+                      android:layout_marginEnd="8dp"
                       android:id="@+id/tb1"
                       >
 
                       <TextView
                           android:id="@+id/shop_name"
-                          android:layout_marginTop="20dp"
+
                           android:layout_marginBottom="10dp"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
@@ -108,7 +110,7 @@
                           app:layout_constraintStart_toStartOf="@id/tb1"/>
                       <TextView
                           android:id="@+id/tb_number"
-                          android:layout_marginTop="20dp"
+                          android:layout_marginTop="15dp"
                           android:layout_marginStart="20dp"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"

@@ -65,7 +65,7 @@ public class MyItemScreenBooking extends Fragment{
         DataMyItemTabBooking dataTypeItem = new DataMyItemTabBooking();
         dataTypes = dataTypeItem.getData_type();
         recyclerView = view.findViewById(R.id.tab_type);
-        AdapterMyItemBookingTab adapterDataType = new AdapterMyItemBookingTab(dataTypes);
+        AdapterMyItemBookingTab adapterDataType = new AdapterMyItemBookingTab(dataTypes,context);
         adapterDataType.setBookinglistener(bookingListener);
         recyclerView.setAdapter(adapterDataType);
 

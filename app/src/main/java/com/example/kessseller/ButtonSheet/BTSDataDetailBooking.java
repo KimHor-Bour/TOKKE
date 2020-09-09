@@ -1,5 +1,6 @@
 package com.example.kessseller.ButtonSheet;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import androidx.annotation.Nullable;
 import com.example.kessseller.R;
 import com.github.florent37.singledateandtimepicker.SingleDateAndTimePicker;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class BTSDataDetailBooking extends BottomSheetDialogFragment {
@@ -25,10 +27,20 @@ public class BTSDataDetailBooking extends BottomSheetDialogFragment {
     ImageView imageView;
     LinearLayout linearLayout;
 
+    BottomSheetBehavior bottomSheetBehavior;
+
+
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.booking_detail_view_seller,container,false);
+    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+        BottomSheetDialog bottomSheetDialog = (BottomSheetDialog) super.onCreateDialog(savedInstanceState);
+        View view = View.inflate(getContext(), R.layout.booking_detail_view_seller,null);
+
+        bottomSheetDialog.setContentView(view);
+
+        bottomSheetBehavior= BottomSheetBehavior.from((View) (view.getParent()));
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+
         imageView = view.findViewById(R.id.btn_detail_cross);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,17 +48,7 @@ public class BTSDataDetailBooking extends BottomSheetDialogFragment {
                 dismiss();
             }
         });
-        return view;
-    }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
+        return bottomSheetDialog;
     }
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-    }
-
 }

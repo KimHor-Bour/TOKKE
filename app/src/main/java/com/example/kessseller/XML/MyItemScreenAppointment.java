@@ -59,7 +59,7 @@ public class MyItemScreenAppointment extends Fragment{
         DataMyItemTabAppointment dataMyItemTabAppointment = new DataMyItemTabAppointment();
         dataTabAppointments = dataMyItemTabAppointment.getDataTabAppointments();
         recyclerView = view.findViewById(R.id.tab_type);
-        AdapterMyItemAppointmentTab adapterMyItemAppointmentTab = new AdapterMyItemAppointmentTab(dataTabAppointments);
+        AdapterMyItemAppointmentTab adapterMyItemAppointmentTab = new AdapterMyItemAppointmentTab(dataTabAppointments,context);
         adapterMyItemAppointmentTab.setAppointmentListener(appointmentListener);
         recyclerView.setAdapter(adapterMyItemAppointmentTab);
 
