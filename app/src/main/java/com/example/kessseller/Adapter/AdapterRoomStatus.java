@@ -9,25 +9,22 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kessseller.Data.DataItemBookingRoom;
-import com.example.kessseller.Data.DataItemBookingTable;
 import com.example.kessseller.Listener.BookingListener;
-import com.example.kessseller.Listener.ListenerBookingTable;
 import com.example.kessseller.R;
 
 import java.util.List;
 
 
-public class AdapterTableStatus extends RecyclerView.Adapter<AdapterTableStatus.DataViewHolder> {
-    List<DataItemBookingTable.DataItemTable> dataItemTables;
+public class AdapterRoomStatus extends RecyclerView.Adapter<AdapterRoomStatus.DataViewHolder> {
+    List<DataItemBookingRoom.DataItemRoom> dataItemRooms;
     BookingListener bookinglistener;
-    ListenerBookingTable listenerBookingTable;
 
-    public void setListenerBookingTable(ListenerBookingTable listenerBookingTable) {
-        this.listenerBookingTable = listenerBookingTable;
+    public void setBookinglistener(BookingListener bookinglistener) {
+        this.bookinglistener = bookinglistener;
     }
 
-    public AdapterTableStatus(List<DataItemBookingTable.DataItemTable> dataItemTables) {
-        this.dataItemTables = dataItemTables;
+    public AdapterRoomStatus(List<DataItemBookingRoom.DataItemRoom> dataItemRooms) {
+        this.dataItemRooms = dataItemRooms;
 
     }
     @Override
@@ -39,13 +36,13 @@ public class AdapterTableStatus extends RecyclerView.Adapter<AdapterTableStatus.
 
     @Override
     public void onBindViewHolder(@NonNull DataViewHolder holder, final int position) {
-        holder.dataNumTable.setText(dataItemTables.get(position).table_number);
-        holder.dataNumPeopleTable.setText(dataItemTables.get(position).num_people);
+        holder.dataNumId.setText(dataItemRooms.get(position).room_number);
+        holder.dataNumPeople.setText(dataItemRooms.get(position).room_num_people);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(listenerBookingTable != null){
-                    listenerBookingTable.onClickItem(dataItemTables.get(position));
+                if(bookinglistener != null){
+                    bookinglistener.onItemClick(dataItemRooms.get(position));
                 }
             }
         });
@@ -54,7 +51,7 @@ public class AdapterTableStatus extends RecyclerView.Adapter<AdapterTableStatus.
 
     @Override
     public int getItemCount() {
-        return dataItemTables.size();
+        return dataItemRooms.size();
     }
 
     @Override
@@ -64,13 +61,13 @@ public class AdapterTableStatus extends RecyclerView.Adapter<AdapterTableStatus.
 
     public static class DataViewHolder extends RecyclerView.ViewHolder {
         RecyclerView recyclerView;
-        TextView dataNumTable;
-        TextView dataNumPeopleTable;
+        TextView dataNumId;
+        TextView dataNumPeople;
         TextView dataNumFloor;
         public DataViewHolder(@NonNull View itemView) {
             super(itemView);
-            dataNumTable=(TextView)itemView.findViewById(R.id.number_type);
-            dataNumPeopleTable=(TextView)itemView.findViewById(R.id.num_people);
+            dataNumId=(TextView)itemView.findViewById(R.id.number_type);
+            dataNumPeople=(TextView)itemView.findViewById(R.id.num_people);
 //            dataNumFloor=(TextView)itemView.findViewById(R.id.num_floor);
             recyclerView=(RecyclerView) itemView.findViewById(R.id.my_restatus);
 

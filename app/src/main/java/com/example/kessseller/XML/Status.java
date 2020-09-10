@@ -17,13 +17,16 @@ import androidx.fragment.app.Fragment;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.kessseller.Adapter.AdapterTableStatus;
 import com.example.kessseller.ButtonSheet.BTSDetailItemBooking;
 import com.example.kessseller.Data.DataItemBookingRoom;
 import com.example.kessseller.ButtonSheet.BTSDataDetailBooking;
+import com.example.kessseller.Data.DataItemBookingTable;
 import com.example.kessseller.Data.DataMyItemTabBooking;
 import com.example.kessseller.Listener.BookingListener;
 import com.example.kessseller.ButtonSheet.BTSDateandTime;
-import com.example.kessseller.Adapter.AdapterTableStatus;
+import com.example.kessseller.Adapter.AdapterRoomStatus;
+import com.example.kessseller.Listener.ListenerBookingTable;
 import com.example.kessseller.R;
 
 import java.text.SimpleDateFormat;
@@ -35,6 +38,7 @@ public class Status extends Fragment implements View.OnClickListener {
     String[] values = {"Table","Room","Event",};
     TextView textView;
     List<DataItemBookingRoom.DataItemRoom> dataItemRooms;
+    List<DataItemBookingTable.DataItemTable> dataItemTables;
     View clickitem;
     BTSDataDetailBooking btsDataStatus;
     //    RecyclerAdapter recyclerAdapter;
@@ -46,6 +50,16 @@ public class Status extends Fragment implements View.OnClickListener {
         super.onAttach(context);
         this.context = context;
     }
+
+    private ListenerBookingTable listenerBookingTable = new ListenerBookingTable() {
+        @Override
+        public void onClickItem(DataItemBookingTable.DataItemTable dataItemTable) {
+            BTSDetailItemBooking btsDetailStatus = new BTSDetailItemBooking(context);
+            btsDetailStatus.show(getFragmentManager(), BTSDetailItemBooking
+                    .class.getSimpleName());
+        }
+    };
+
 
     private BookingListener bookingListener = new BookingListener() {
         @Override
@@ -80,11 +94,10 @@ public class Status extends Fragment implements View.OnClickListener {
         textView = rootView.findViewById(R.id.type_status);
         textView.setText(values[0]);
 
-        AdapterTableStatus recyclerAdapterStatus = new AdapterTableStatus(dataItemRooms);
+        AdapterRoomStatus recyclerAdapterStatus = new AdapterRoomStatus(dataItemRooms);
 
 //        recyclerView.setAdapter(recyclerAdapterStatus);
 
-        AdapterTableStatus recyclerAdapterStatus1 = new AdapterTableStatus(dataItemRooms);
         recyclerAdapterStatus.setBookinglistener(bookingListener);
         recyclerView.setAdapter(recyclerAdapterStatus);
         linearLayout = (LinearLayout)rootView.findViewById(R.id.filterbtntype);
@@ -106,8 +119,6 @@ public class Status extends Fragment implements View.OnClickListener {
             }
         });Context context;
 
-
-//        clickitem = (View)rootView.findViewById()
 
 
         return rootView;

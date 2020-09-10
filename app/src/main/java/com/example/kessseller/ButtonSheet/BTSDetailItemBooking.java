@@ -32,7 +32,7 @@ public class BTSDetailItemBooking extends BottomSheetDialogFragment {
         bottomSheetDialog.setContentView(view);
 
         bottomSheetBehavior= BottomSheetBehavior.from((View) (view.getParent()));
-        bottomSheetBehavior.setPeekHeight(BottomSheetBehavior.SAVE_ALL);
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
         return bottomSheetDialog;
     }
 }
