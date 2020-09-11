@@ -8,6 +8,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="5dp"
         android:id="@+id/card_event_id"
         android:background="@drawable/border_grey_radius"
         android:layout_height="wrap_content"
@@ -16,47 +17,77 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         >
+
         <LinearLayout
+            android:layout_marginBottom="5dp"
             android:paddingTop="5dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageView
-                android:background="@color/colorBlack"
-                android:id="@+id/img_event"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/table"
-                android:scaleType="centerCrop"
-                />
+                android:elevation="4dp"
+                android:background="@drawable/bacground_filter">
+                <ImageView
+                    android:id="@+id/img_event"
+                    android:layout_width="80dp"
+                    android:layout_height="90dp"
+                    android:src="@drawable/room"
+                    android:scaleType="centerCrop"
+                    />
+            </LinearLayout>
 
             <LinearLayout
-                android:padding="10dp"
+                android:paddingBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <LinearLayout
-                    android:gravity="left"
-                    android:padding="5dp"
+                    android:orientation="horizontal"
+                    android:paddingEnd="5dp"
+                    android:paddingStart="5dp"
+                    android:paddingBottom="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <TextView
-                        android:hint="Event Name"
-                        android:id="@+id/event_name"
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="30dp">
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="top"
+                            android:maxLines="1"
+                            android:hint="Event Name"
+                            android:id="@+id/event_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textColor="@color/colorBlack"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginStart="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:textColor="@color/colorBlack"/>
+                        android:layout_gravity="right"
+                        >
+                        <TextView
+                            android:layout_gravity="top"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/colorGreen"
+                            android:textSize="12dp"
+                            android:text="Active "
+                            android:textColorHint="@color/colorWhite"/>
+                    </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
-                    android:paddingStart="10dp"
+                    android:paddingStart="5dp"
                     android:gravity="left"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -76,7 +107,7 @@
                         android:textColor="@color/colorBlack"/>
                 </LinearLayout>
                 <LinearLayout
-                    android:paddingStart="10dp"
+                    android:paddingStart="5dp"
                     android:gravity="left"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -86,8 +117,8 @@
                         android:textSize="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Start Date  :"
-                       />
+                        android:text="Date  :"
+                        />
                     <TextView
                         android:hint="Start date"
                         android:id="@+id/event_statedate"
@@ -95,19 +126,13 @@
                         android:layout_height="wrap_content"
                         android:textSize="10dp"
                         android:textColor="@color/colorBlack"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:paddingStart="10dp"
-                    android:gravity="left"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
                     <TextView
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
                         android:textSize="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="End Date  :"
+                        android:text="-"
                         />
                     <TextView
                         android:hint="End date"
@@ -115,10 +140,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="10dp"
-                        android:textColor="@color/colorBlack"/>
+                        android:textColor="@color/colorBlack"/>r
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_margin="5dp"
+                    android:layout_marginTop="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -143,6 +168,5 @@
 
             </LinearLayout>
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.kessseller.Java.Viewpager;
 import com.example.kessseller.R;
+import com.example.kessseller.Test.Status;
 import com.google.android.material.tabs.TabLayout;
 
 public class BookingTab extends Fragment {
@@ -41,11 +42,11 @@ public class BookingTab extends Fragment {
         viewpagerAdapter = new Viewpager(getFragmentManager());
         tab1= new Order();
         tab2 = new Booking();
-        tab3 = new Status();
+//        tab3 = new Status();
 
         viewpagerAdapter.addItem(tab1, "Order");
         viewpagerAdapter.addItem(tab2, "Booking");
-        viewpagerAdapter.addItem(tab3, "Status");
+//        viewpagerAdapter.addItem(tab3, "Status");
         viewPager.setAdapter(viewpagerAdapter);
         tabLayout = view.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);

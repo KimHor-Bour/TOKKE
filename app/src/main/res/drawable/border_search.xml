@@ -9,7 +9,7 @@
         android:color="@color/colorPurplePink"
         />
     <corners
-        android:radius="30dp"
+        android:radius="10dp"
         />
 
 </shape>

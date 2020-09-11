@@ -17,14 +17,19 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kessseller.Adapter.AdapterMyItemBookingTab;
+import com.example.kessseller.Adapter.AdapterMyItemEvent;
 import com.example.kessseller.Adapter.AdapterMyItemRoom;
+import com.example.kessseller.ButtonSheet.BTSDataDetailEvent;
 import com.example.kessseller.ButtonSheet.BTSDetailItemBooking;
+import com.example.kessseller.Data.DataItemAppointment;
+import com.example.kessseller.Data.DataItemBookingEvent;
 import com.example.kessseller.Data.DataItemBookingRoom;
 import com.example.kessseller.Data.DataMyItemTabBooking;
 import com.example.kessseller.Java.CreateEventScreen;
 import com.example.kessseller.Java.CreateRoomScreen;
 import com.example.kessseller.Java.CreateTableScreen;
 import com.example.kessseller.Listener.BookingListener;
+import com.example.kessseller.Listener.ListenerClickItemEvent;
 import com.example.kessseller.R;
 
 import java.util.Date;
@@ -36,7 +41,7 @@ public class MyItemScreenBooking extends Fragment{
     RecyclerView recyclerView;
     List<DataMyItemTabBooking.DataType> dataTypes;
     List<DataItemBookingRoom.DataItemRoom> dataItemRooms;
-    View bgColor;
+    List<DataItemBookingEvent.DataItemEvent> dataItemEvents;
 
     private BookingListener bookingListener = new BookingListener() {
         @Override
@@ -55,6 +60,13 @@ public class MyItemScreenBooking extends Fragment{
 
         }
     };
+    private ListenerClickItemEvent listenerClickItemEvent = new ListenerClickItemEvent() {
+        @Override
+        public void onClickItem(DataItemBookingEvent.DataItemEvent dataItemEvent) {
+            BTSDataDetailEvent btsDataDetailEvent = new BTSDataDetailEvent(context);
+            btsDataDetailEvent.show(getFragmentManager(),BTSDataDetailEvent.class.getSimpleName());
+        }
+    };
 
 
     @Nullable
@@ -69,13 +81,20 @@ public class MyItemScreenBooking extends Fragment{
         adapterDataType.setBookinglistener(bookingListener);
         recyclerView.setAdapter(adapterDataType);
 
-
-        DataItemBookingRoom dataItemBookingRoom = new DataItemBookingRoom();
-        dataItemRooms = dataItemBookingRoom.getData_roomitem();
+        DataItemBookingEvent dataItemBookingEvent = new DataItemBookingEvent();
+        dataItemEvents = dataItemBookingEvent.getData_eventitem();
         recyclerView = view.findViewById(R.id.data_type);
-        AdapterMyItemRoom adapterMyItemRoom = new AdapterMyItemRoom(dataItemRooms);
-        adapterMyItemRoom.setBookinglistener(bookingListener);
-        recyclerView.setAdapter(adapterMyItemRoom);
+        AdapterMyItemEvent adapterMyItemEvent = new AdapterMyItemEvent(dataItemEvents);
+        adapterMyItemEvent.setListenerClickEvent(listenerClickItemEvent);
+        recyclerView.setAdapter(adapterMyItemEvent);
+
+
+//        DataItemBookingRoom dataItemBookingRoom = new DataItemBookingRoom();
+//        dataItemRooms = dataItemBookingRoom.getData_roomitem();
+//        recyclerView = view.findViewById(R.id.data_type);
+//        AdapterMyItemRoom adapterMyItemRoom = new AdapterMyItemRoom(dataItemRooms);
+//        adapterMyItemRoom.setBookinglistener(bookingListener);
+//        recyclerView.setAdapter(adapterMyItemRoom);
 
 //        bgColor=view.findViewById(R.id.ll1);
         linearLayout = view.findViewById(R.id.add_item);

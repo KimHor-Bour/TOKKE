@@ -10,15 +10,20 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kessseller.Data.DataItemBookingEvent;
+import com.example.kessseller.Listener.ListenerClickItemEvent;
 import com.example.kessseller.R;
 
 import java.util.List;
 
 public class AdapterMyItemEvent extends RecyclerView.Adapter<AdapterMyItemEvent.DataViewHolder> {
     List<DataItemBookingEvent.DataItemEvent> dataItemEvents;
+    ListenerClickItemEvent listenerClickItemEvent;
     public AdapterMyItemEvent(List<DataItemBookingEvent.DataItemEvent> dataItemEvents) {
         this.dataItemEvents=dataItemEvents;
 
+    }
+    public void setListenerClickEvent(ListenerClickItemEvent listenerClickEvent){
+        this.listenerClickItemEvent = listenerClickEvent;
     }
 
 
@@ -31,13 +36,21 @@ public class AdapterMyItemEvent extends RecyclerView.Adapter<AdapterMyItemEvent.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DataViewHolder dataViewHolder, int position) {
+    public void onBindViewHolder(@NonNull DataViewHolder dataViewHolder, final int position) {
         dataViewHolder.dataEventName.setText(dataItemEvents.get(position).event_name);
         dataViewHolder.dataEventTicket.setText(dataItemEvents.get(position).event_ticket);
         dataViewHolder.dataEventPrice.setText(dataItemEvents.get(position).event_price);
         dataViewHolder.dataEventSpecialPrice.setText(dataItemEvents.get(position).event_specialprice);
-        dataViewHolder.dataEventStartDate.setText(dataItemEvents.get(position).event_startdate);
-        dataViewHolder.dataEventEndDate.setText(dataItemEvents.get(position).event_enddate);
+//        dataViewHolder.dataEventStartDate.setText(dataItemEvents.get(position).event_startdate);
+//        dataViewHolder.dataEventEndDate.setText(dataItemEvents.get(position).event_enddate);
+        dataViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(listenerClickItemEvent != null){
+                    listenerClickItemEvent.onClickItem(dataItemEvents.get(position));
+                }
+            }
+        });
 
     }
 
@@ -71,8 +84,8 @@ public class AdapterMyItemEvent extends RecyclerView.Adapter<AdapterMyItemEvent.
             dataEventTicket = (TextView)itemView.findViewById(R.id.event_ticket);
             dataEventPrice = (TextView)itemView.findViewById(R.id.event_price);
             dataEventSpecialPrice = (TextView)itemView.findViewById(R.id.event_specialprice);
-            dataEventStartDate = (TextView)itemView.findViewById(R.id.event_statedate);
-            dataEventEndDate = (TextView)itemView.findViewById(R.id.event_enddate);
+//            dataEventStartDate = (TextView)itemView.findViewById(R.id.event_statedate);
+//            dataEventEndDate = (TextView)itemView.findViewById(R.id.event_enddate);
 //            dataDescription = (TextView)itemView.findViewById(R.id.);
 
         }

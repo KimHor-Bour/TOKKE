@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/border_radius_top"
     android:orientation="vertical">
-   <ScrollView
+   <androidx.core.widget.NestedScrollView
        android:layout_width="match_parent"
        android:layout_height="match_parent">
        <LinearLayout
@@ -235,7 +235,7 @@
                </LinearLayout>
            </LinearLayout>
        </LinearLayout>
-   </ScrollView>
+   </androidx.core.widget.NestedScrollView>
 
 
 </LinearLayout>

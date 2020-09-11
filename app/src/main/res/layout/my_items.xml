@@ -78,7 +78,7 @@
         <LinearLayout
             android:padding="5dp"
             android:layout_gravity="center"
-            android:gravity="center"
+            android:gravity="left"
             android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:background="@drawable/border_search">

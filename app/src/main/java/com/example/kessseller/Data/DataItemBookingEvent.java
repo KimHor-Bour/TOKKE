@@ -32,7 +32,7 @@ public class DataItemBookingEvent {
     private List<DataItemEvent> dataItemEvents;
     private  void initDataItemTable(){
         dataItemEvents = new ArrayList<>();
-        dataItemEvents.add(new DataItemEvent("Buffet","200","$20","$15","19/09/2020","20/08/2020","write description about event"));
+        dataItemEvents.add(new DataItemEvent("Buffeteasdfghjgfsdfghjhgdsf","200","$20","$15","19/09/2020","20/08/2020","write description about event"));
         dataItemEvents.add(new DataItemEvent("white Party","500","$40","$20","19/09/2020","20/08/2020","write description about event"));
         dataItemEvents.add(new DataItemEvent("Lovely Day","350","$15.5","$10","19/09/2020","20/08/2020","write description about event"));
         dataItemEvents.add(new DataItemEvent("Dinner Time","290","$20","$10","19/09/2020 ","20/08/2020","write description about event"));

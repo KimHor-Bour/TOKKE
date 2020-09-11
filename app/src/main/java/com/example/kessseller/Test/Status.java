@@ -1,4 +1,4 @@
-package com.example.kessseller.XML;
+package com.example.kessseller.Test;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
