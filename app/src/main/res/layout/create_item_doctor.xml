@@ -339,19 +339,21 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/clickAddItemDoctor"
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
         android:gravity="center"
-        android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/radius_bg_pink">
+        android:background="@drawable/border_radius_bg_purplepink">
         <TextView
-            android:padding="5dp"
+            android:layout_margin="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorWhite"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            android:text="ADD ITEM"/>
+            android:text="ADD ITEM"
+            android:textSize="20dp"
+            android:textColor="@color/colorWhite"/>
     </LinearLayout>
+
 
 </LinearLayout>

@@ -25,7 +25,7 @@ public class BTSDateandTime extends BottomSheetDialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.date_picker_popup,container,false);
+        View v = inflater.inflate(R.layout.bts_date_picker,container,false);
         return v;
     }
 

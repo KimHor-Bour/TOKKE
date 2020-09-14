@@ -68,6 +68,7 @@ public class Appointment extends DialogFragment {
         adapterAppointment.setClickDetailRequestDoctor(clickDetailRequestDoctor);
 
         textView = view.findViewById(R.id.txt_appointment_filter);
+        textView.setText(app_values[0]);
 
         recyclerView = view.findViewById(R.id.re_appointment);
 

@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.kessseller.Data.DataItemBookingRoom;
 import com.example.kessseller.Data.DataItemBookingTable;
 import com.example.kessseller.Listener.BookingListener;
 import com.example.kessseller.Listener.ListenerBookingTable;
@@ -32,7 +31,7 @@ public class AdapterTableStatus extends RecyclerView.Adapter<AdapterTableStatus.
     }
     @Override
     public DataViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.data_of_filter_status,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_table_status,parent,false);
         DataViewHolder dataViewHolder = new DataViewHolder(v);
         return dataViewHolder;
     }

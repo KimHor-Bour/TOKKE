@@ -64,6 +64,7 @@
 
 
         <TextView
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Search"
@@ -72,41 +73,21 @@
             android:textColor="@color/colorPurplePink"/>
     </LinearLayout>
     <TextView
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TOTAL"
-        android:textSize="30dp"
-        android:textColor="@color/colorPurplePink"/>
+        android:textSize="20dp"
+        android:textColor="@color/colorBlack"/>
     <TextView
         android:id="@+id/totalPriceEvent"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="$2000"
-        android:textSize="30dp"
-        android:textColor="@color/colorBlack"/>
-    <LinearLayout
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="200 tickets"
-            android:textSize="14dp"
-            android:textColor="@color/colorRed"/>
-        <TextView
-            android:layout_marginStart="15dp"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="200 tickets"
-            android:textSize="14dp"
-            android:textColor="@color/colorGreen"/>
-    </LinearLayout>
+        android:textSize="40dp"
+        android:textColor="@color/colorGreen"/>
     <LinearLayout
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
@@ -116,5 +97,4 @@
             android:layout_height="match_parent"
             android:id="@+id/re_eventDetail"/>
     </LinearLayout>
-
 </LinearLayout>

@@ -87,20 +87,6 @@ public class Booking extends DialogFragment implements View.OnClickListener {
             public void onClick(DialogInterface dialogInterface, int i) {
                 TextView txt = (TextView)getActivity().findViewById(R.id.txtfilter);
                 txt.setText(values[i]);
-//                switch (i){
-//                    case 1:
-//                        DataRecyclerViewBooking dataRecyclerViewBooking = new DataRecyclerViewBooking();
-//                        datas = dataRecyclerViewBooking.getDataRecycler();
-//                        RecyclerAdapterBooking recyclerAdapter = new RecyclerAdapterBooking(datas);
-//                        recyclerView.setAdapter(recyclerAdapter);
-//                        recyclerAdapter.setDetailListener(detailListener);
-//                    case 2:
-//                        DataItemBookingRoom dataItemBookingRoom = new DataItemBookingRoom();
-//                        datas = dataRecyclerViewBooking.getDataRecycler();
-//                        RecyclerAdapterBooking recyclerAdapter = new RecyclerAdapterBooking(datas);
-//                        recyclerView.setAdapter(recyclerAdapter);
-//                        recyclerAdapter.setDetailListener(detailListener);
-//                }
                 dialogInterface.dismiss();
             };
         });

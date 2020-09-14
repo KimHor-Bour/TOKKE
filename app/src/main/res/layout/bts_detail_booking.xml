@@ -8,7 +8,7 @@
   <LinearLayout
       android:id="@+id/id_linear"
       android:orientation="vertical"
-      android:background="@color/colorblurGrey"
+      android:background="@drawable/border_radius_top_bggrey"
       android:layout_width="match_parent"
       android:layout_height="match_parent">
       <LinearLayout
@@ -19,6 +19,7 @@
           <androidx.constraintlayout.widget.ConstraintLayout
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
+              android:background="@drawable/border_radius_top"
               android:id="@+id/t">
               <TextView
                   android:layout_marginTop="7dp"
@@ -519,7 +520,7 @@
                           android:id="@+id/data_deposit"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
-                          android:hint="10%"
+                          android:hint="$10"
                           android:textSize="13dp"
                           android:textColorHint="@color/colorPurplePink"
                           android:textColor="@color/colorGreen"

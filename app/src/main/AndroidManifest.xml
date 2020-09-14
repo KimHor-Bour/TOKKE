@@ -25,6 +25,7 @@
         <activity android:name=".Java.CreateRoomScreen" />
         <activity android:name=".Java.CreateTableScreen" />
         <activity android:name=".Java.AddDoctorScreen" />
+        <activity android:name=".XML.EventDetailStatus" />
 
     </application>
 
