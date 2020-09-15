@@ -44,300 +44,304 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
-
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:layout_weight="1">
         <LinearLayout
-            android:layout_marginStart="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Image"
-                android:textSize="20dp"
-                android:layout_margin="10dp"/>
             <LinearLayout
-                android:id="@+id/img_click_room"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:orientation="horizontal"
-                android:background="@drawable/image_border_icon">
-
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/colorGrey">
-            <LinearLayout
-                android:padding="15dp"
+                android:layout_marginStart="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border_bacground_white"
-                android:orientation="horizontal">
-
-                <RelativeLayout
-                    android:layout_marginEnd="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:id="@+id/txt_app_doctorname"
-                        android:paddingEnd="10dp"
-                        android:gravity="left"
-                        android:paddingStart="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14dp"
-                        android:textColor="@color/colorBlack"
-                        android:text="Doctor Name"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="*"
-                        android:textColor="#FF3333"
-
-                        android:layout_alignRight="@id/txt_app_doctorname"/>
-                </RelativeLayout>
-                <EditText
-                    android:id="@+id/enter_app_doctorname"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:hint="Enter Doctor Name"
-                    android:textSize="14dp"
-                    android:foregroundGravity="right"
-                    android:background="@android:color/transparent"
-                    android:paddingRight="10dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:padding="15dp"
-                android:layout_marginTop="1dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/border_bacground_white"
-                android:orientation="horizontal">
-                <RelativeLayout
-                    android:layout_marginEnd="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:id="@+id/txt_app_skill"
-                        android:paddingEnd="10dp"
-                        android:gravity="left"
-                        android:paddingStart="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14dp"
-                        android:textColor="@color/colorBlack"
-                        android:text="Skill"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="*"
-                        android:textColor="#FF3333"
-                        android:layout_alignRight="@id/txt_app_skill"/>
-                </RelativeLayout>
-                <EditText
-                    android:id="@+id/enter_app_skill"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:hint="Enter Skill"
-                    android:textSize="14dp"
-                    android:foregroundGravity="right"
-                    android:background="@android:color/transparent"
-                    android:paddingRight="10dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="1dp"
-                android:padding="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/border_bacground_white"
-                android:orientation="horizontal">
-                <RelativeLayout
-                    android:layout_marginEnd="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:id="@+id/txt_app_degree"
-                        android:paddingEnd="10dp"
-                        android:gravity="left"
-                        android:paddingStart="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14dp"
-                        android:textColor="@color/colorBlack"
-                        android:text="Degree"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="*"
-                        android:textColor="#FF3333"
-                        android:layout_alignRight="@id/txt_app_degree"/>
-                </RelativeLayout>
-
-                <EditText
-                    android:id="@+id/enter_app_degree"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:hint="Enter Degree"
-                    android:textSize="14dp"
-                    android:foregroundGravity="right"
-                    android:background="@android:color/transparent"
-                    android:paddingRight="10dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:padding="15dp"
-                android:layout_marginTop="1dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/border_bacground_white"
-                android:orientation="horizontal">
-                <RelativeLayout
-                    android:layout_marginEnd="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:id="@+id/txt_app_experient"
-                        android:paddingEnd="10dp"
-                        android:gravity="left"
-                        android:paddingStart="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14dp"
-                        android:textColor="@color/colorBlack"
-                        android:text="Working-Experient"/>
-
-                </RelativeLayout>
-
-                <EditText
-                    android:id="@+id/enter_app_experient"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:hint="Enter Work Experient"
-                    android:textSize="14dp"
-                    android:foregroundGravity="right"
-                    android:background="@android:color/transparent"
-                    android:paddingRight="10dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:padding="15dp"
-                android:layout_marginTop="1dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/border_bacground_white"
-                android:orientation="horizontal">
-                <RelativeLayout
-                    android:layout_marginEnd="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:paddingEnd="10dp"
-                        android:gravity="left"
-                        android:paddingStart="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14dp"
-                        android:textColor="@color/colorBlack"
-                        android:text="Day Off"/>
-                </RelativeLayout>
+                android:orientation="vertical">
                 <TextView
-                    android:id="@+id/enter_app_dayoff"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:hint="Enter Day Off"
-                    android:textSize="14dp"
-                    android:foregroundGravity="right"
-                    android:background="@android:color/transparent"
-                    android:paddingRight="10dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:padding="15dp"
-                android:layout_marginTop="1dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/border_bacground_white"
-                android:orientation="horizontal">
-                <RelativeLayout
-                    android:layout_marginEnd="10dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:paddingEnd="10dp"
-                        android:gravity="left"
-                        android:paddingStart="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14dp"
-                        android:textColor="@color/colorBlack"
-                        android:text="Working Hour"/>
-                </RelativeLayout>
-                <EditText
-                    android:id="@+id/enter_app_workinghour"
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:hint="Enter Working Hour"
-                    android:textSize="14dp"
-                    android:foregroundGravity="right"
-                    android:background="@android:color/transparent"
-                    android:paddingRight="10dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:padding="15dp"
-                android:layout_marginTop="1dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/border_bacground_white"
-                android:orientation="horizontal">
-                <RelativeLayout
-                    android:layout_marginEnd="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:paddingEnd="20dp"
-                        android:gravity="left"
-                        android:paddingStart="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14dp"
-                        android:textColor="@color/colorBlack"
-                        android:text="Description"/>
-                </RelativeLayout>
+                    android:text="Image"
+                    android:textSize="20dp"
+                    android:layout_margin="10dp"/>
                 <LinearLayout
-                    android:id="@+id/tabDescription1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/enter_app_description"
-                        android:layout_width="200dp"
+                    android:id="@+id/img_click_room"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/image_border_icon">
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/colorGrey">
+                <LinearLayout
+                    android:padding="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_bacground_white"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_marginEnd="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/txt_app_doctorname"
+                            android:paddingEnd="10dp"
+                            android:gravity="left"
+                            android:paddingStart="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textColor="@color/colorBlack"
+                            android:text="Doctor Name"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="*"
+                            android:textColor="#FF3333"
+
+                            android:layout_alignRight="@id/txt_app_doctorname"/>
+                    </RelativeLayout>
+                    <EditText
+                        android:id="@+id/enter_app_doctorname"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:hint="Enter Description"
+                        android:hint="Enter Doctor Name"
                         android:textSize="14dp"
                         android:foregroundGravity="right"
                         android:background="@android:color/transparent"
                         android:paddingRight="10dp"/>
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_arrow_right"
-                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:padding="15dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_bacground_white"
+                    android:orientation="horizontal">
+                    <RelativeLayout
+                        android:layout_marginEnd="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/txt_app_skill"
+                            android:paddingEnd="10dp"
+                            android:gravity="left"
+                            android:paddingStart="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textColor="@color/colorBlack"
+                            android:text="Skill"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="*"
+                            android:textColor="#FF3333"
+                            android:layout_alignRight="@id/txt_app_skill"/>
+                    </RelativeLayout>
+                    <EditText
+                        android:id="@+id/enter_app_skill"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:hint="Enter Skill"
+                        android:textSize="14dp"
+                        android:foregroundGravity="right"
+                        android:background="@android:color/transparent"
+                        android:paddingRight="10dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="1dp"
+                    android:padding="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_bacground_white"
+                    android:orientation="horizontal">
+                    <RelativeLayout
+                        android:layout_marginEnd="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/txt_app_degree"
+                            android:paddingEnd="10dp"
+                            android:gravity="left"
+                            android:paddingStart="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textColor="@color/colorBlack"
+                            android:text="Degree"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="*"
+                            android:textColor="#FF3333"
+                            android:layout_alignRight="@id/txt_app_degree"/>
+                    </RelativeLayout>
+
+                    <EditText
+                        android:id="@+id/enter_app_degree"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:hint="Enter Degree"
+                        android:textSize="14dp"
+                        android:foregroundGravity="right"
+                        android:background="@android:color/transparent"
+                        android:paddingRight="10dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:padding="15dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_bacground_white"
+                    android:orientation="horizontal">
+                    <RelativeLayout
+                        android:layout_marginEnd="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/txt_app_experient"
+                            android:paddingEnd="10dp"
+                            android:gravity="left"
+                            android:paddingStart="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textColor="@color/colorBlack"
+                            android:text="Working-Experient"/>
+
+                    </RelativeLayout>
+
+                    <EditText
+                        android:id="@+id/enter_app_experient"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:hint="Enter Work Experient"
+                        android:textSize="14dp"
+                        android:foregroundGravity="right"
+                        android:background="@android:color/transparent"
+                        android:paddingRight="10dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:padding="15dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_bacground_white"
+                    android:orientation="horizontal">
+                    <RelativeLayout
+                        android:layout_marginEnd="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:paddingEnd="10dp"
+                            android:gravity="left"
+                            android:paddingStart="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textColor="@color/colorBlack"
+                            android:text="Day Off"/>
+                    </RelativeLayout>
+                    <EditText
+                        android:id="@+id/enter_app_dayoff"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:hint="Enter Day Off"
+                        android:textSize="14dp"
+                        android:foregroundGravity="right"
+                        android:background="@android:color/transparent"
+                        android:paddingRight="10dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:padding="15dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_bacground_white"
+                    android:orientation="horizontal">
+                    <RelativeLayout
+                        android:layout_marginEnd="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:paddingEnd="10dp"
+                            android:gravity="left"
+                            android:paddingStart="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textColor="@color/colorBlack"
+                            android:text="Working Hour"/>
+                    </RelativeLayout>
+                    <EditText
+                        android:id="@+id/enter_app_workinghour"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:hint="Enter Working Hour"
+                        android:textSize="14dp"
+                        android:foregroundGravity="right"
+                        android:background="@android:color/transparent"
+                        android:paddingRight="10dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:padding="15dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_bacground_white"
+                    android:orientation="horizontal">
+                    <RelativeLayout
+                        android:layout_marginEnd="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:paddingEnd="20dp"
+                            android:gravity="left"
+                            android:paddingStart="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textColor="@color/colorBlack"
+                            android:text="Description"/>
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:id="@+id/tabDescription1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:id="@+id/enter_app_description"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:hint="Enter Description"
+                            android:textSize="14dp"
+                            android:foregroundGravity="right"
+                            android:background="@android:color/transparent"
+                            android:paddingRight="10dp"/>
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_arrow_right"
+                            />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
     <LinearLayout
         android:id="@+id/clickAddItemDoctor"
         android:layout_margin="10dp"

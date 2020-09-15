@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.kessseller.Adapter.AdapterCodeTicket;
 import com.example.kessseller.Adapter.AdapterMyItemAppointmentTab;
 import com.example.kessseller.Adapter.AdapterMyItemEvent;
+import com.example.kessseller.Adapter.AdapterSliderImage;
 import com.example.kessseller.Data.DataCodeTicket;
 import com.example.kessseller.Data.DataMyItemTabAppointment;
 import com.example.kessseller.R;
@@ -38,6 +39,7 @@ public class BTSDetailItemBooking extends BottomSheetDialogFragment {
 
         bottomSheetBehavior= BottomSheetBehavior.from((View) (view.getParent()));
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+
 
         return bottomSheetDialog;
     }

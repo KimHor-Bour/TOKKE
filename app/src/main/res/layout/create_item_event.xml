@@ -33,7 +33,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="MY ROOM"
+                    android:text="Event"
                     android:textColor="@color/colorWhite"
                     android:textSize="14dp"
                     app:layout_constraintStart_toStartOf="@id/con_tool"
@@ -149,6 +149,7 @@
                             android:layout_alignRight="@id/txt_availableticket"/>
                     </RelativeLayout>
                     <EditText
+                        android:inputType="number"
                         android:id="@+id/enter_event_availiableticket"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -189,6 +190,7 @@
                     </RelativeLayout>
 
                     <EditText
+                        android:inputType="number"
                         android:id="@+id/enter_event_price"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -224,6 +226,7 @@
                     </RelativeLayout>
 
                     <EditText
+                        android:inputType="number"
                         android:id="@+id/enter_event_specialprice"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -263,7 +266,7 @@
 
                             android:layout_alignRight="@id/txt_event_startdate"/>
                     </RelativeLayout>
-                    <TextView
+                    <EditText
                         android:id="@+id/enter_event_startdate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

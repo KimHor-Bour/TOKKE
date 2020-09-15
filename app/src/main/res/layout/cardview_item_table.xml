@@ -7,7 +7,7 @@
     <androidx.cardview.widget.CardView
         android:layout_marginStart="5dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/card_table_id"
        android:background="@drawable/border_grey_radius"
         android:layout_height="wrap_content"
@@ -20,20 +20,27 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
+            <LinearLayout
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
 
-            <ImageView
-                android:background="@color/colorBlack"
-                android:id="@+id/img_table"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:src="@drawable/table"
-                android:scaleType="centerCrop"
-                />
+                <ImageView
+                    android:layout_gravity="center"
+                    android:id="@+id/img_table"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@color/colorBlack"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/table" />
+            </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -44,7 +51,7 @@
                     android:orientation="vertical">
                     <LinearLayout
                         android:gravity="left"
-                        android:padding="10dp"
+                        android:layout_marginTop="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <TextView
@@ -131,7 +138,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <TextView
-                            android:paddingStart="10dp"
+                            android:paddingStart="5dp"
                             android:hint="Table Price"
                             android:id="@+id/table_price"
                             android:layout_width="wrap_content"

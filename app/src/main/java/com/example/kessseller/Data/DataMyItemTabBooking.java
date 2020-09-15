@@ -29,7 +29,7 @@ public class DataMyItemTabBooking {
         dataTypes.add(new DataType("Product"));
         dataTypes.add(new DataType("Table"));
         dataTypes.add(new DataType("Room"));
-//        dataTypes.add(new DataType("Event"));
+        dataTypes.add(new DataType("Event"));
     }
     public List<DataType> getData_type(){return  dataTypes;}
 

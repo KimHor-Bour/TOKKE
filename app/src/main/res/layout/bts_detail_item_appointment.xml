@@ -8,7 +8,7 @@
     <ScrollView
         android:background="@drawable/border_radius_top"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <LinearLayout
             android:background="@drawable/border_radius_top"
             android:layout_width="match_parent"
@@ -17,28 +17,12 @@
             <RelativeLayout
                 android:background="@drawable/border_radius_top"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="300dp"
                 >
-                <com.smarteist.autoimageslider.SliderView
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/imageSlider"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageSlide"
-                    app:sliderAnimationDuration="600"
-                    app:sliderAutoCycleDirection="back_and_forth"
-                    app:sliderAutoCycleEnabled="true"
-                    app:sliderIndicatorAnimationDuration="600"
-                    app:sliderIndicatorGravity="center_horizontal"
-                    app:sliderIndicatorMargin="15dp"
-                    app:sliderIndicatorOrientation="horizontal"
-                    app:sliderIndicatorPadding="3dp"
-                    app:sliderIndicatorRadius="2dp"
-                    app:sliderIndicatorSelectedColor="@color/colorPurplePink"
-                    app:sliderIndicatorUnselectedColor="@color/colorWhite"
-                    app:sliderScrollTimeInSec="2"
-                    app:sliderStartAutoCycle="true"
-                    >
-
-                </com.smarteist.autoimageslider.SliderView>
+                    android:layout_height="match_parent"/>
 
             </RelativeLayout>
             <LinearLayout
