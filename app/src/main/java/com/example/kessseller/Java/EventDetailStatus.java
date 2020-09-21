@@ -1,26 +1,18 @@
-package com.example.kessseller.XML;
+package com.example.kessseller.Java;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.kessseller.Adapter.AdapterAppointment;
-import com.example.kessseller.Adapter.AdapterMyItemEvent;
 import com.example.kessseller.Adapter.AdapterUserBuyTicket;
 import com.example.kessseller.ButtonSheet.BTSDetailUserBuyTicket;
-import com.example.kessseller.Data.DataItemBookingEvent;
 import com.example.kessseller.Data.DataUserBuyTicket;
-import com.example.kessseller.Data.DataViewAppointment;
 import com.example.kessseller.Listener.ListenerEventDetail;
 import com.example.kessseller.R;
 

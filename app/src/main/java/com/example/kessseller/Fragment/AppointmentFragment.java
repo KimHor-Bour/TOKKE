@@ -1,4 +1,4 @@
-package com.example.kessseller.XML;
+package com.example.kessseller.Fragment;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,7 +25,7 @@ import com.example.kessseller.R;
 
 import java.util.List;
 
-public class Appointment extends DialogFragment {
+public class AppointmentFragment extends Fragment {
     LinearLayout linearLayout;
     RecyclerView recyclerView;
     AlertDialog alertDialog;
@@ -35,7 +35,11 @@ public class Appointment extends DialogFragment {
 
     List<DataViewAppointment.DataAppointment>dataAppointments;
 
-    @Override
+    public AppointmentFragment(){
+
+    }
+
+    private static final String Name = "myOrders";
     public int getTheme() {
         return R.style.AppBottomSheetDialogTheme;
     }
@@ -83,7 +87,6 @@ public class Appointment extends DialogFragment {
         return view;
     }
 
-    @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Selected Filter");
@@ -103,5 +106,14 @@ public class Appointment extends DialogFragment {
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         this.context=context;
+    }
+
+    public static AppointmentFragment newInstance() {
+        
+        Bundle args = new Bundle();
+        
+        AppointmentFragment fragment = new AppointmentFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 }

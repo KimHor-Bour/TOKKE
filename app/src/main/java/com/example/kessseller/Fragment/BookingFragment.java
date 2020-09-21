@@ -1,9 +1,10 @@
-package com.example.kessseller.XML;
+package com.example.kessseller.Fragment;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +13,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.example.kessseller.Data.DataItemBookingRoom;
 import com.example.kessseller.Data.DataRecyclerViewBooking;
 import com.example.kessseller.Adapter.RecyclerAdapterBooking;
 import com.example.kessseller.ButtonSheet.BTSDataDetailBooking;
@@ -25,7 +25,7 @@ import com.example.kessseller.Listener.DetailListener;
 import com.example.kessseller.R;
 
 import java.util.List;
-public class Booking extends DialogFragment implements View.OnClickListener {
+public class BookingFragment extends Fragment implements View.OnClickListener {
     View view;
     String[] values = {"All","Booking Request","Booking List","Completed","Cancelled","Booking History",};
     TextView textView;
@@ -78,7 +78,6 @@ public class Booking extends DialogFragment implements View.OnClickListener {
     }
 
     @NonNull
-    @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Selected Filter");
@@ -95,5 +94,14 @@ public class Booking extends DialogFragment implements View.OnClickListener {
     }
     @Override
     public void onClick(View view) {
+    }
+
+    public static BookingFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        BookingFragment fragment = new BookingFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 }

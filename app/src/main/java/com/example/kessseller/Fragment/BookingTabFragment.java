@@ -1,4 +1,4 @@
-package com.example.kessseller.XML;
+package com.example.kessseller.Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,17 +12,16 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.kessseller.Java.Viewpager;
 import com.example.kessseller.R;
 import com.example.kessseller.Test.Status;
 import com.google.android.material.tabs.TabLayout;
 
-public class BookingTab extends Fragment {
+public class BookingTabFragment extends Fragment {
     TabLayout tabLayout;
     ViewPager viewPager;
-    Viewpager viewpagerAdapter;
-    private Order tab1;
-    private Booking tab2;
+    ViewpagerFragment viewpagerAdapter;
+    private OrderFragment tab1;
+    private BookingFragment tab2;
     private Status tab3;
 
     LinearLayout filter;
@@ -39,9 +38,9 @@ public class BookingTab extends Fragment {
 //        setSupportActionBar(toolbar);
 
         viewPager = view.findViewById(R.id.viewPager);
-        viewpagerAdapter = new Viewpager(getFragmentManager());
-        tab1= new Order();
-        tab2 = new Booking();
+        viewpagerAdapter = new ViewpagerFragment(getFragmentManager());
+        tab1= new OrderFragment();
+        tab2 = new BookingFragment();
 //        tab3 = new Status();
 
         viewpagerAdapter.addItem(tab1, "Order");
@@ -52,5 +51,14 @@ public class BookingTab extends Fragment {
         tabLayout.setupWithViewPager(viewPager);
 
         return view;
+    }
+
+    public static BookingTabFragment newInstance() {
+        
+        Bundle args = new Bundle();
+        
+        BookingTabFragment fragment = new BookingTabFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 }

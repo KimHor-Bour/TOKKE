@@ -1,4 +1,4 @@
-package com.example.kessseller.XML;
+package com.example.kessseller.Fragment;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -18,10 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kessseller.Adapter.AdapterMyItemBookingTab;
 import com.example.kessseller.Adapter.AdapterMyItemEvent;
-import com.example.kessseller.Adapter.AdapterMyItemRoom;
 import com.example.kessseller.ButtonSheet.BTSDataDetailEvent;
 import com.example.kessseller.ButtonSheet.BTSDetailItemBooking;
-import com.example.kessseller.Data.DataItemAppointment;
 import com.example.kessseller.Data.DataItemBookingEvent;
 import com.example.kessseller.Data.DataItemBookingRoom;
 import com.example.kessseller.Data.DataMyItemTabBooking;
@@ -32,11 +30,13 @@ import com.example.kessseller.Listener.BookingListener;
 import com.example.kessseller.Listener.ListenerClickItemEvent;
 import com.example.kessseller.R;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class MyItemScreenBooking extends Fragment{
+public class MyItemScreenBookingFragment extends Fragment{
     LinearLayout linearLayout;
      private  Context context;
     RecyclerView recyclerView;
@@ -62,6 +62,8 @@ public class MyItemScreenBooking extends Fragment{
 
         }
     };
+
+
     private ListenerClickItemEvent listenerClickItemEvent = new ListenerClickItemEvent() {
         @Override
         public void onClickItem(DataItemBookingEvent.DataItemEvent dataItemEvent) {
@@ -83,22 +85,16 @@ public class MyItemScreenBooking extends Fragment{
         adapterDataType.setBookinglistener(bookingListener);
         recyclerView.setAdapter(adapterDataType);
 
+        recyclerView = view.findViewById(R.id.data_type);
         DataItemBookingEvent dataItemBookingEvent = new DataItemBookingEvent();
         dataItemEvents = dataItemBookingEvent.getData_eventitem();
-        recyclerView = view.findViewById(R.id.data_type);
         AdapterMyItemEvent adapterMyItemEvent = new AdapterMyItemEvent(dataItemEvents);
         adapterMyItemEvent.setListenerClickEvent(listenerClickItemEvent);
         recyclerView.setAdapter(adapterMyItemEvent);
 
 
-//        DataItemBookingRoom dataItemBookingRoom = new DataItemBookingRoom();
-//        dataItemRooms = dataItemBookingRoom.getData_roomitem();
-//        recyclerView = view.findViewById(R.id.data_type);
-//        AdapterMyItemRoom adapterMyItemRoom = new AdapterMyItemRoom(dataItemRooms);
-//        adapterMyItemRoom.setBookinglistener(bookingListener);
-//        recyclerView.setAdapter(adapterMyItemRoom);
 
-//        bgColor=view.findViewById(R.id.ll1);
+
         linearLayout = view.findViewById(R.id.add_item);
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,6 +123,8 @@ public class MyItemScreenBooking extends Fragment{
                 dialog.show();
             }
         });
+
+
         linearLayout = view.findViewById(R.id.opt_filter);
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,10 +152,39 @@ public class MyItemScreenBooking extends Fragment{
         return view;
     }
 
+
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         this.context=context;
     }
 
+
+    public static MyItemScreenBookingFragment newInstance() {
+        
+        Bundle args = new Bundle();
+        
+        MyItemScreenBookingFragment fragment = new MyItemScreenBookingFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+
+//    public static class MyItemDataDoctorFragment extends Fragment {
+//        @Nullable
+//        @Override
+//        public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+//            View v = inflater.inflate(R.layout.cardview_item_doctor,container,false);
+//            return v;
+//        }
+//
+//        public static MyItemDataDoctorFragment newInstance() {
+//
+//            Bundle args = new Bundle();
+//
+//            MyItemDataDoctorFragment fragment = new MyItemDataDoctorFragment();
+//            fragment.setArguments(args);
+//            return fragment;
+//        }
+//    }
 }

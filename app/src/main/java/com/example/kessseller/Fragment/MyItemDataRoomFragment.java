@@ -1,4 +1,4 @@
-package com.example.kessseller.Java;
+package com.example.kessseller.Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,9 +17,14 @@ import com.example.kessseller.R;
 
 import java.util.List;
 
-public class MyItemDataRoom extends Fragment {
+public class MyItemDataRoomFragment extends Fragment {
     RecyclerView recyclerView;
     List<DataItemBookingRoom.DataItemRoom> dataItemRooms;
+    public MyItemDataRoomFragment(){
+
+    }
+    private static final String Name= "cupon";
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -43,5 +48,14 @@ public class MyItemDataRoom extends Fragment {
 
         return view;
 
+    }
+
+    public static MyItemDataRoomFragment newInstance() {
+        
+        Bundle args = new Bundle();
+        
+        MyItemDataRoomFragment fragment = new MyItemDataRoomFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.kessseller.XML;
+package com.example.kessseller.Fragment;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -27,13 +27,18 @@ import com.example.kessseller.R;
 
 import java.util.List;
 
-public class MyItemScreenAppointment extends Fragment{
+public class MyItemScreenAppointmentFragment extends Fragment{
     LinearLayout linearLayout;
     private  Context context;
     RecyclerView recyclerView;
     List<DataMyItemTabAppointment.DataTabAppointment> dataTabAppointments;
     List<DataItemAppointment.DataApp> dataApps;
     View bgColor;
+
+    public MyItemScreenAppointmentFragment(){
+
+    }
+    private static final String Name = "myItems";
 
     private AppointmentListener appointmentListener = new AppointmentListener() {
         @Override
@@ -111,5 +116,14 @@ public class MyItemScreenAppointment extends Fragment{
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         this.context=context;
+    }
+
+    public static MyItemScreenAppointmentFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        MyItemScreenAppointmentFragment fragment = new MyItemScreenAppointmentFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 }

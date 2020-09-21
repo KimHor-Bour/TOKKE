@@ -606,37 +606,44 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           >
-          <LinearLayout
+
+          <androidx.constraintlayout.widget.ConstraintLayout
+              android:layout_width="match_parent"
+              android:layout_height="44dp"
               android:layout_gravity="center"
               android:gravity="center"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              >
+              android:layout_margin="3dp"
+              android:id="@+id/con1">
+
               <Button
-                  android:layout_marginEnd="20dp"
-                  android:layout_gravity="center"
-                  android:text="Reject"
                   android:id="@+id/btn_reject"
-                  android:paddingStart="50dp"
-                  android:paddingEnd="50dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="40dp"
+                  android:layout_gravity="center"
                   android:background="@drawable/bacground_filter"
-                  android:layout_width="wrap_content"
-                  android:layout_height="40dp"
-                  android:textColor="@color/colorPurplePink"
-                  />
-              <Button
-                  android:layout_marginStart="20dp"
-                  android:layout_margin="10dp"
-                  android:text="Accept"
-                  android:id="@+id/btn_accept"
                   android:paddingStart="50dp"
                   android:paddingEnd="50dp"
-                  android:background="@drawable/border_radius_green"
+                  android:text="Reject"
+                  app:layout_constraintTop_toTopOf="@id/con1"
+                  app:layout_constraintBottom_toBottomOf="@id/con1"
+                  app:layout_constraintStart_toStartOf="@id/con1"
+                  app:layout_constraintEnd_toStartOf="@id/btn_accept"
+                  android:textColor="@color/colorPurplePink" />
+
+              <Button
+                  android:id="@+id/btn_accept"
                   android:layout_width="wrap_content"
                   android:layout_height="40dp"
-                  android:textColor="@color/colorWhite"
-                  />
-          </LinearLayout>
+                  android:background="@drawable/border_radius_green"
+                  android:paddingStart="50dp"
+                  android:paddingEnd="50dp"
+                  android:text="Accept"
+                  app:layout_constraintTop_toTopOf="@id/con1"
+                  app:layout_constraintBottom_toBottomOf="@id/con1"
+                  app:layout_constraintEnd_toEndOf="@id/con1"
+                  app:layout_constraintStart_toEndOf="@id/btn_reject"
+                  android:textColor="@color/colorWhite" />
+          </androidx.constraintlayout.widget.ConstraintLayout>
 
       </LinearLayout>
   </LinearLayout>

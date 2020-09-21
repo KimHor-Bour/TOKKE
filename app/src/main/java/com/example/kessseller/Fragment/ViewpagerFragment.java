@@ -1,4 +1,4 @@
-package com.example.kessseller.Java;
+package com.example.kessseller.Fragment;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -9,13 +9,13 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Viewpager extends FragmentPagerAdapter {
+public class ViewpagerFragment extends FragmentPagerAdapter {
 
     private List<Fragment> fragmentList= new ArrayList<>();
     private List<String> titles = new ArrayList<>();
 
 
-    public Viewpager(@NonNull FragmentManager fm) {
+    public ViewpagerFragment(@NonNull FragmentManager fm) {
         super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
     }
     public void  addItem(Fragment fragment, String title){

@@ -1,23 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/navi_dashboard"
+        android:id="@+id/navi_dashboard_app"
+        android:checked="false"
+        app:showAsAction="always"
         android:icon="@drawable/dashboard"
         android:title="@string/dashboard"/>
     <item
-        android:id="@+id/navi_myorder"
+        android:id="@+id/navi_myorder_app"
+        android:checked="true"
+        app:showAsAction="always"
         android:icon="@drawable/calendar"
         android:title="@string/appointment"/>
     <item
-        android:id="@+id/navi_myitems"
+        android:id="@+id/navi_myitems_app"
         android:icon="@drawable/storage"
+        android:checked="false"
+        app:showAsAction="always"
         android:title="@string/myitems"/>
     <item
-        android:id="@+id/navi_cupon"
+        android:id="@+id/navi_cupon_app"
+        android:checked="false"
+        app:showAsAction="always"
         android:icon="@drawable/coupon"
         android:title="@string/mycupon"/>
     <item
-        android:id="@+id/navi_account"
+        android:id="@+id/navi_account_app"
+        android:checked="false"
+        app:showAsAction="always"
         android:icon="@drawable/account"
         android:title="@string/account"/>
 

@@ -4,10 +4,16 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal">
+
     <FrameLayout
         android:id="@+id/fragment_appointment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_app"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"/>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:background="@color/colorWhite"
@@ -16,7 +22,7 @@
         app:labelVisibilityMode="labeled"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:id="@+id/bottom_navigation"
+        android:id="@+id/bottom_navigation_app"
         app:menu="@menu/bottom_navigation_appointment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

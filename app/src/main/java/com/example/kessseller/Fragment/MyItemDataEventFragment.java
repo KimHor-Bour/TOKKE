@@ -1,4 +1,4 @@
-package com.example.kessseller.Java;
+package com.example.kessseller.Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,9 +17,14 @@ import com.example.kessseller.R;
 
 import java.util.List;
 
-public class MyItemDataEvent extends Fragment {
+public class MyItemDataEventFragment extends Fragment {
     RecyclerView recyclerView;
     List<DataItemBookingEvent.DataItemEvent> dataItemEvents;
+    public MyItemDataEventFragment(){
+
+    }
+    private static final String Name = "account";
+
 
     @Nullable
     @Override
@@ -39,5 +44,14 @@ public class MyItemDataEvent extends Fragment {
         recyclerView.setAdapter(adapterOfItemEvent);
         return view;
 
+    }
+
+    public static MyItemDataEventFragment newInstance() {
+        
+        Bundle args = new Bundle();
+
+        MyItemDataEventFragment fragment = new MyItemDataEventFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 }

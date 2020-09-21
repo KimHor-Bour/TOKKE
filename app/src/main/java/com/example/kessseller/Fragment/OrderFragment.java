@@ -1,6 +1,5 @@
-package com.example.kessseller.XML;
+package com.example.kessseller.Fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,9 @@ import androidx.fragment.app.Fragment;
 
 import com.example.kessseller.R;
 
-public class Order extends Fragment {
+public class OrderFragment extends Fragment {
+
+    private static final String Name = "dashboard";
 
     @Nullable
     @Override
@@ -26,5 +27,14 @@ public class Order extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
+    }
+
+    public static OrderFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        OrderFragment fragment = new OrderFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 }

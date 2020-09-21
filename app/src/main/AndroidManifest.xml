@@ -11,21 +11,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Java.AlertDialogRadio"/>
-        <activity android:name=".XML.ScreenKess" >
+        <activity android:name=".Java.ScreenKess" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".XML.AppointmentScreen" />
+        <activity android:name=".Java.AppointmentScreen" />
         <activity android:name=".Test.Test"  />
-        <activity android:name=".XML.BookingScreen" />
+        <activity android:name=".Java.BookingScreen" />
         <activity android:name=".Java.CreateEventScreen" />
         <activity android:name=".Java.CreateRoomScreen" />
         <activity android:name=".Java.CreateTableScreen" />
         <activity android:name=".Java.AddDoctorScreen" />
-        <activity android:name=".XML.EventDetailStatus" />
+        <activity android:name=".Java.EventDetailStatus" />
 
     </application>
 

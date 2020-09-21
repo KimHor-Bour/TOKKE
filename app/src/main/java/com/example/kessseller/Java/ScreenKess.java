@@ -1,4 +1,4 @@
-package com.example.kessseller.XML;
+package com.example.kessseller.Java;
 
 import android.app.Activity;
 import android.content.Intent;

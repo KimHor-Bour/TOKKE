@@ -1,4 +1,4 @@
-package com.example.kessseller.Java;
+package com.example.kessseller.Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,7 +17,7 @@ import com.example.kessseller.R;
 
 import java.util.List;
 
-public class MyItemDataTable extends Fragment {
+public class MyItemDataTableFragment extends Fragment {
     RecyclerView recyclerView;
     List<DataItemBookingTable.DataItemTable> dataItemTables;
     @Nullable
@@ -38,5 +38,14 @@ public class MyItemDataTable extends Fragment {
         recyclerView.setAdapter(adapterOfItemTable);
         return view;
 
+    }
+
+    public static MyItemDataTableFragment newInstance() {
+        
+        Bundle args = new Bundle();
+        
+        MyItemDataTableFragment fragment = new MyItemDataTableFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 }

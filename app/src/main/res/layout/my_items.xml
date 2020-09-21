@@ -27,7 +27,7 @@
                     android:gravity="center"
                     android:text="MY ITEMS"
                     android:textColor="@color/colorWhite"
-                    android:textSize="14dp"
+                    android:textSize="16dp"
                     app:layout_constraintStart_toStartOf="@id/con_tool"
                     app:layout_constraintEnd_toEndOf="@id/con_tool"
                     app:layout_constraintTop_toTopOf="@id/con_tool"
@@ -129,12 +129,14 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 />
         <LinearLayout
-            android:layout_marginBottom="60dp"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
             <LinearLayout
-                android:layout_margin="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="3dp"
                 android:padding="2dp"
                 android:layout_gravity="center"
                 android:gravity="left"
@@ -190,8 +192,10 @@
             </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/data_type"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 tools:listitem="@layout/item_data"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 />
