@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,6 +24,7 @@ import com.example.kessseller.ButtonSheet.BTSDataDetailEvent;
 import com.example.kessseller.ButtonSheet.BTSDetailItemBooking;
 import com.example.kessseller.Data.DataItemBookingEvent;
 import com.example.kessseller.Data.DataItemBookingRoom;
+import com.example.kessseller.Data.DataItemBookingTable;
 import com.example.kessseller.Data.DataMyItemTabBooking;
 import com.example.kessseller.Java.CreateEventScreen;
 import com.example.kessseller.Java.CreateRoomScreen;
@@ -42,7 +45,10 @@ public class MyItemScreenBookingFragment extends Fragment{
     RecyclerView recyclerView;
     List<DataMyItemTabBooking.DataType> dataTypes;
     List<DataItemBookingRoom.DataItemRoom> dataItemRooms;
+    List<DataItemBookingTable.DataItemTable> dataItemTables;
     List<DataItemBookingEvent.DataItemEvent> dataItemEvents;
+    String[] createtype = {"Create Product", "Create Table", "Create Room", "Create Event"};
+
 
     private BookingListener bookingListener = new BookingListener() {
         @Override
@@ -92,15 +98,11 @@ public class MyItemScreenBookingFragment extends Fragment{
         adapterMyItemEvent.setListenerClickEvent(listenerClickItemEvent);
         recyclerView.setAdapter(adapterMyItemEvent);
 
-
-
-
         linearLayout = view.findViewById(R.id.add_item);
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                String[] createtype = {"Create Product", "Create Table", "Create Room", "Create Event"};
                 builder.setItems(createtype, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -119,7 +121,7 @@ public class MyItemScreenBookingFragment extends Fragment{
                         }
                     }
                 });
-                AlertDialog dialog = builder.create();
+                AlertDialog dialog = builder.show();
                 dialog.show();
             }
         });
@@ -168,23 +170,4 @@ public class MyItemScreenBookingFragment extends Fragment{
         fragment.setArguments(args);
         return fragment;
     }
-
-
-//    public static class MyItemDataDoctorFragment extends Fragment {
-//        @Nullable
-//        @Override
-//        public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//            View v = inflater.inflate(R.layout.cardview_item_doctor,container,false);
-//            return v;
-//        }
-//
-//        public static MyItemDataDoctorFragment newInstance() {
-//
-//            Bundle args = new Bundle();
-//
-//            MyItemDataDoctorFragment fragment = new MyItemDataDoctorFragment();
-//            fragment.setArguments(args);
-//            return fragment;
-//        }
-//    }
 }

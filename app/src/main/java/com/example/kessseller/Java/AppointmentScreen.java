@@ -35,7 +35,7 @@ public class AppointmentScreen extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
 
         fragmentManager.beginTransaction().add(R.id.fragment_appointment,myItemScreenAppointment,"myitems").hide(myItemScreenAppointment).commit();
-        fragmentManager.beginTransaction().add(R.id.fragment_appointment,appointment,"myorders").hide(appointment).commit();
+        fragmentManager.beginTransaction().add(R.id.fragment_appointment,appointment,"myorders").commit();
 
 
         bottomNavigationView = findViewById(R.id.bottom_navigation_app);

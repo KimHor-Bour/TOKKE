@@ -189,6 +189,7 @@
                     </RelativeLayout>
 
                     <EditText
+                        android:inputType="number"
                         android:id="@+id/enter_table_numpeople"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -222,6 +223,7 @@
                     </RelativeLayout>
 
                     <EditText
+                        android:inputType="number"
                         android:id="@+id/enter_table_price"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -254,6 +256,7 @@
                             android:text="Special Price"/>
                     </RelativeLayout>
                     <EditText
+                        android:inputType="number"
                         android:id="@+id/enter_table_specialprice"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

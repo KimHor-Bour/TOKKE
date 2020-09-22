@@ -7,27 +7,19 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.kessseller.Adapter.AdapterCodeTicket;
-import com.example.kessseller.Adapter.AdapterMyItemAppointmentTab;
-import com.example.kessseller.Adapter.AdapterMyItemEvent;
-import com.example.kessseller.Adapter.AdapterSliderImage;
-import com.example.kessseller.Data.DataCodeTicket;
-import com.example.kessseller.Data.DataMyItemTabAppointment;
 import com.example.kessseller.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-
-import java.util.List;
 
 public class BTSDetailItemBooking extends BottomSheetDialogFragment {
     private Context context;
     public BTSDetailItemBooking(Context context){
         this.context = context;
     };
+
+
 
     BottomSheetBehavior bottomSheetBehavior;
 
@@ -39,6 +31,7 @@ public class BTSDetailItemBooking extends BottomSheetDialogFragment {
 
         bottomSheetBehavior= BottomSheetBehavior.from((View) (view.getParent()));
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+
 
 
         return bottomSheetDialog;

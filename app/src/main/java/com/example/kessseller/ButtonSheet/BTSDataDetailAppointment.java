@@ -2,7 +2,6 @@ package com.example.kessseller.ButtonSheet;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -27,7 +26,7 @@ public class BTSDataDetailAppointment extends BottomSheetDialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         BottomSheetDialog bottomSheetDialog = (BottomSheetDialog) super.onCreateDialog(savedInstanceState);
-        View view = View.inflate(getContext(), R.layout.doctor_detail,null);
+        View view = View.inflate(getContext(), R.layout.bts_doctor_detail,null);
 
         bottomSheetDialog.setContentView(view);
 

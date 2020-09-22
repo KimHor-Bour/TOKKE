@@ -55,6 +55,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <TextView
+                            android:ellipsize="end"
                             android:hint="Table Number"
                             android:id="@+id/table_num"
                             android:layout_width="wrap_content"
@@ -63,7 +64,7 @@
                             android:textColor="@color/colorBlack"/>
                     </LinearLayout>
                     <LinearLayout
-                        android:paddingStart="10dp"
+                       android:padding="2dp"
                         android:gravity="left"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -94,7 +95,7 @@
 
                     </LinearLayout>
                     <LinearLayout
-                        android:paddingStart="10dp"
+                        android:padding="2dp"
                         android:gravity="left"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -113,7 +114,7 @@
                             android:textColor="@color/colorBlack"/>
                     </LinearLayout>
                     <LinearLayout
-                        android:paddingStart="10dp"
+                        android:padding="2dp"
                         android:gravity="left"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -133,12 +134,11 @@
                             android:textColor="@color/colorBlack"/>
                     </LinearLayout>
                     <LinearLayout
-                        android:layout_margin="5dp"
+                        android:padding="2dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <TextView
-                            android:paddingStart="5dp"
                             android:hint="Table Price"
                             android:id="@+id/table_price"
                             android:layout_width="wrap_content"

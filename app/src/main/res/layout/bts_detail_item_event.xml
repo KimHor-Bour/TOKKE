@@ -14,45 +14,15 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <RelativeLayout
-                android:layout_marginTop="20dp"
+                android:background="@drawable/border_radius_top"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="300dp"
                 >
-                <ImageView
-                    android:id="@+id/images"
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/imageSlider_ed"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ticket"/>
-                <LinearLayout
-                    android:padding="5dp"
-                    android:gravity="center"
-                    android:layout_margin="10dp"
-                    android:layout_alignBottom="@id/images"
-                    android:background="@drawable/border_radius_bggrey"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    >
-                    <TextView
-                        android:textColorHint="@color/colorWhite"
-                        android:textColor="@color/colorWhite"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="1"/>
-                    <TextView
-                        android:paddingStart="3dp"
-                        android:paddingEnd="3dp"
-                        android:textColor="@color/colorWhite"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="/"/>
-                    <TextView
-                        android:textColorHint="@color/colorWhite"
-                        android:textColor="@color/colorWhite"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="3"/>
-                </LinearLayout>
+                    android:layout_height="match_parent"/>
+
             </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"

@@ -10,7 +10,6 @@
         android:roundIcon="@mipmap/harry_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Java.AlertDialogRadio"/>
         <activity android:name=".Java.ScreenKess" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,12 +20,14 @@
         <activity android:name=".Java.AppointmentScreen" />
         <activity android:name=".Test.Test"  />
         <activity android:name=".Java.BookingScreen" />
-        <activity android:name=".Java.CreateEventScreen" />
-        <activity android:name=".Java.CreateRoomScreen" />
-        <activity android:name=".Java.CreateTableScreen" />
+        <activity android:name=".Java.CreateEventScreen"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".Java.CreateRoomScreen"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".Java.CreateTableScreen"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity android:name=".Java.AddDoctorScreen" />
         <activity android:name=".Java.EventDetailStatus" />
-
     </application>
 
 </manifest>

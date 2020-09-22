@@ -1,5 +1,6 @@
 package com.example.kessseller.Adapter;
 
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import java.util.List;
 public class AdapterMyItemEvent extends RecyclerView.Adapter<AdapterMyItemEvent.DataViewHolder> {
     List<DataItemBookingEvent.DataItemEvent> dataItemEvents;
     ListenerClickItemEvent listenerClickItemEvent;
+    TextView textView;
     public AdapterMyItemEvent(List<DataItemBookingEvent.DataItemEvent> dataItemEvents) {
         this.dataItemEvents=dataItemEvents;
 
@@ -32,6 +34,10 @@ public class AdapterMyItemEvent extends RecyclerView.Adapter<AdapterMyItemEvent.
     public DataViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_item_event, parent , false);
         DataViewHolder dataViewHolder = new DataViewHolder(v);
+
+        textView = v.findViewById(R.id.event_price);
+        textView.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+
         return dataViewHolder;
     }
 

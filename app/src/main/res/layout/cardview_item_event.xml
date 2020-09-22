@@ -67,10 +67,11 @@
                         android:layout_height="wrap_content">
                         <TextView
                             android:hint="Event Name"
+                            android:ellipsize="end"
                             android:id="@+id/event_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="18dp"
+                            android:textSize="16dp"
                             android:maxLines="1"
                             android:textColor="@color/colorBlack"/>
                     </LinearLayout>
@@ -109,6 +110,7 @@
                             android:text="Date :"
                             />
                         <TextView
+                            android:padding="2dp"
                             android:layout_marginStart="5dp"
                             android:hint="Start date"
                             android:id="@+id/event_statedate"
@@ -117,6 +119,7 @@
                             android:textSize="10dp"
                             android:textColor="@color/colorBlack"/>
                         <TextView
+                            android:padding="2dp"
                             android:layout_marginStart="5dp"
                             android:layout_marginEnd="5dp"
                             android:textSize="10dp"
@@ -125,6 +128,7 @@
                             android:text="-"
                             />
                         <TextView
+                            android:padding="2dp"
                             android:hint="End date"
                             android:id="@+id/event_enddate"
                             android:layout_width="wrap_content"
@@ -140,6 +144,7 @@
                         android:orientation="horizontal"
                         >
                         <TextView
+                            android:padding="2dp"
                             android:hint="Event Price"
                             android:id="@+id/event_price"
                             android:layout_width="wrap_content"
@@ -147,6 +152,7 @@
                             android:textSize="14dp"
                             android:textColor="#FF0000"/>
                         <TextView
+                            android:padding="2dp"
                             android:paddingStart="10dp"
                             android:hint="Special Price"
                             android:id="@+id/event_specialprice"

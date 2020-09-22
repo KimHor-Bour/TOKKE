@@ -7,9 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.viewpager.widget.ViewPager;
 
+import com.example.kessseller.Adapter.AdapterSIED;
 import com.example.kessseller.R;
 import com.example.kessseller.Java.EventDetailStatus;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -23,6 +26,8 @@ public class BTSDataDetailEvent extends BottomSheetDialogFragment {
     };
     ImageView imageView;
     LinearLayout linearLayout;
+    ViewPager viewPager;
+    AdapterSIED adapterSIED;
 
     BottomSheetBehavior bottomSheetBehavior;
 
@@ -31,7 +36,7 @@ public class BTSDataDetailEvent extends BottomSheetDialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         BottomSheetDialog bottomSheetDialog = (BottomSheetDialog) super.onCreateDialog(savedInstanceState);
-        View view = View.inflate(getContext(), R.layout.detail_item_event,null);
+        View view = View.inflate(getContext(), R.layout.bts_detail_item_event,null);
 
         bottomSheetDialog.setContentView(view);
 
@@ -47,6 +52,10 @@ public class BTSDataDetailEvent extends BottomSheetDialogFragment {
                 startActivity(intent);
             }
         });
+
+        viewPager = (ViewPager)bottomSheetDialog.findViewById(R.id.imageSlider_ed);
+        adapterSIED = new AdapterSIED(context);
+        viewPager.setAdapter(adapterSIED);
 
         return bottomSheetDialog;
     }

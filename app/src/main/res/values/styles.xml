@@ -25,5 +25,8 @@
         parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/border_radius_top</item>
     </style>
+    <style name="MaterialThemeDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorPurplePink</item>
+    </style>
 
 </resources>

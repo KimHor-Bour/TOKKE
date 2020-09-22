@@ -6,8 +6,8 @@
     android:layout_marginBottom="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.cardview.widget.CardView
-        android:layout_marginEnd="5dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:id="@+id/card_doctor_id"
         android:background="@drawable/border_grey_radius"
         android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_marginBottom="10dp"
                     android:src="@drawable/doctorimage"
                     android:scaleType="centerCrop"
@@ -50,7 +50,6 @@
                     android:layout_gravity="center"
                     android:paddingEnd="10dp"
                     android:paddingBottom="10dp"
-                    android:paddingStart="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -63,11 +62,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <TextView
+                            android:ellipsize="end"
                             android:hint="Doctor Name"
                             android:id="@+id/app_doctorname"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="18dp"
+                            android:textSize="16dp"
                             android:textColor="@color/colorBlack"/>
                     </LinearLayout>
                     <LinearLayout
@@ -77,12 +77,14 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <TextView
+                            android:padding="2dp"
                             android:textSize="10dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Skill :"
                             />
                         <TextView
+                            android:padding="2dp"
                             android:layout_marginStart="5dp"
                             android:hint="Skill"
                             android:id="@+id/app_skill"
@@ -99,12 +101,14 @@
                         android:orientation="horizontal"
                         >
                         <TextView
+                            android:padding="2dp"
                             android:textSize="10dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Day Off :"
                             />
                         <TextView
+                            android:padding="2dp"
                             android:layout_marginStart="5dp"
                             android:hint="Day Off"
                             android:id="@+id/app_dayoff"
@@ -121,12 +125,14 @@
                         android:orientation="horizontal"
                         >
                         <TextView
+                            android:padding="2dp"
                             android:textSize="10dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Woring Hour :"
+                            android:text="Work Hour :"
                             />
                         <TextView
+                            android:padding="2dp"
                             android:layout_marginStart="5dp"
                             android:hint="Working hour"
                             android:id="@+id/app_workinghour"

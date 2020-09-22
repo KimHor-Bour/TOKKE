@@ -14,6 +14,7 @@ import com.example.kessseller.Fragment.BookingFragment;
 import com.example.kessseller.Fragment.BookingTabFragment;
 import com.example.kessseller.Fragment.MyItemDataTableFragment;
 import com.example.kessseller.Fragment.MyItemScreenBookingFragment;
+import com.example.kessseller.Fragment.OrderFragment;
 import com.example.kessseller.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -22,9 +23,10 @@ public class BookingScreen extends AppCompatActivity{
     BottomNavigationView bottomNavigationView;
     FragmentManager fragmentManager;
 
+    final Fragment orders = OrderFragment.newInstance();
     final Fragment bookingTab = BookingTabFragment.newInstance();
     final Fragment myItemScreenBooking = MyItemScreenBookingFragment.newInstance();
-     Fragment active = bookingTab;
+     Fragment active = orders;
 
 
     @Override
@@ -34,6 +36,7 @@ public class BookingScreen extends AppCompatActivity{
 
         fragmentManager = getSupportFragmentManager();
 
+        fragmentManager.beginTransaction().add(R.id.fragment_container_user, orders,"order").commit();
        fragmentManager.beginTransaction().add(R.id.fragment_container_user, bookingTab, "myitems").hide(bookingTab).commit();
         fragmentManager.beginTransaction().add(R.id.fragment_container_user, myItemScreenBooking, "myorders").hide(myItemScreenBooking).commit();
 
@@ -44,7 +47,9 @@ public class BookingScreen extends AppCompatActivity{
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.navi_dashboard:
-                      return true;
+                        fragmentManager.beginTransaction().hide(active).show(orders).commit();
+                        active = orders;
+                        return true;
                     case R.id.navi_myorder:
                         fragmentManager.beginTransaction().hide(active).show(bookingTab).commit();
                         active = bookingTab;

@@ -12,44 +12,15 @@
            android:layout_height="match_parent"
            android:orientation="vertical">
            <RelativeLayout
+               android:background="@drawable/border_radius_top"
                android:layout_width="match_parent"
-               android:layout_height="wrap_content"
+               android:layout_height="300dp"
                >
-               <ImageView
-                   android:id="@+id/images"
+               <androidx.viewpager.widget.ViewPager
+                   android:id="@+id/imageSlider_bd"
                    android:layout_width="match_parent"
-                   android:layout_height="250dp"
-                   android:scaleType="centerCrop"
-                   android:src="@drawable/table"/>
-               <LinearLayout
-                   android:padding="5dp"
-                   android:gravity="center"
-                   android:layout_margin="10dp"
-                   android:layout_alignBottom="@id/images"
-                   android:background="@drawable/border_radius_bggrey"
-                   android:layout_width="50dp"
-                   android:layout_height="wrap_content"
-                   >
-                   <TextView
-                       android:textColorHint="@color/colorWhite"
-                       android:textColor="@color/colorWhite"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:hint="1"/>
-                   <TextView
-                       android:paddingStart="3dp"
-                       android:paddingEnd="3dp"
-                       android:textColor="@color/colorWhite"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="/"/>
-                   <TextView
-                       android:textColorHint="@color/colorWhite"
-                       android:textColor="@color/colorWhite"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:hint="3"/>
-               </LinearLayout>
+                   android:layout_height="match_parent"/>
+
            </RelativeLayout>
            <LinearLayout
                android:layout_width="match_parent"
@@ -105,13 +76,6 @@
                    android:layout_width="match_parent"
                    android:layout_height="match_parent"
                    android:orientation="horizontal">
-                   <ImageView
-                       android:layout_marginStart="10dp"
-                       android:layout_marginEnd="10dp"
-                       android:layout_gravity="bottom"
-                       android:layout_width="30dp"
-                       android:layout_height="30dp"
-                       android:src="@drawable/favorite"/>
                    <ImageView
                        android:layout_marginStart="10dp"
                        android:layout_marginEnd="20dp"

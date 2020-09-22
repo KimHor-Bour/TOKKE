@@ -188,6 +188,7 @@
                 </RelativeLayout>
 
                 <EditText
+                    android:inputType="number"
                     android:id="@+id/enter_room_maxpeople"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -229,6 +230,7 @@
                 </RelativeLayout>
 
                 <EditText
+                    android:inputType="number"
                     android:id="@+id/enter_room_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -261,6 +263,7 @@
                         android:text="Special Price"/>
                 </RelativeLayout>
                 <EditText
+                    android:inputType="number"
                     android:id="@+id/enter_room_specialprice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

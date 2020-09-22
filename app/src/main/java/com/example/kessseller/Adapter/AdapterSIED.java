@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,18 +13,18 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.kessseller.R;
-public class AdapterSliderImage extends PagerAdapter{
-    private int[] image_resources = {R.drawable.doctorimage,R.drawable.doctor_card,R.drawable.doctor,R.drawable.appointment};
+
+public class AdapterSIED extends PagerAdapter{
+    private int[] image_res = {R.drawable.ticket,R.drawable.tickets,R.drawable.table_image_background,R.drawable.tickets};
     private Context context;
     private LayoutInflater layoutInflater;
-    public AdapterSliderImage(Context context){
+    public AdapterSIED(Context context){
         this.context = context;
     }
-    String[] textImage;
 
     @Override
     public int getCount() {
-        return image_resources.length;
+        return image_res.length;
     }
 
     @Override
@@ -37,15 +36,15 @@ public class AdapterSliderImage extends PagerAdapter{
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         layoutInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = layoutInflater.inflate(R.layout.image_slider,container,false);
-        ImageView imageView = view.findViewById(R.id.images);
-        TextView textView = view.findViewById(R.id.txtImage);
+        View view = layoutInflater.inflate(R.layout.imageslider_event_detail,container,false);
+        ImageView imageView = view.findViewById(R.id.images_ed);
+        TextView textView = view.findViewById(R.id.txtImage_ed);
         textView.setText(Integer.toString(position+1));
 
-        TextView textCount = view.findViewById(R.id.countImage);
+        TextView textCount = view.findViewById(R.id.countImage_ed);
         textCount.setText(Integer.toString(getCount()));
 
-        imageView.setImageResource(image_resources[position]);
+        imageView.setImageResource(image_res[position]);
         container.addView(view);
         return view;
     }
@@ -55,3 +54,4 @@ public class AdapterSliderImage extends PagerAdapter{
         ((ViewPager)container).removeView((View)object);
     }
 }
+

@@ -12,7 +12,6 @@ import com.example.kessseller.Data.DataSliderItem;
 import com.example.kessseller.R;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapterVH>{
@@ -44,7 +43,7 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapter
 //    }
     @Override
     public SliderAdapterVH onCreateViewHolder(ViewGroup parent) {
-        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.image_slider,null);
+        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.imageslider_doctor_detail,null);
         return new SliderAdapterVH(inflate);
     }
 
