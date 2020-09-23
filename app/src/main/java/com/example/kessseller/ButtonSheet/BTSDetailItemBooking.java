@@ -4,10 +4,12 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.kessseller.Data.DataItemBookingRoom;
 import com.example.kessseller.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -18,7 +20,8 @@ public class BTSDetailItemBooking extends BottomSheetDialogFragment {
     public BTSDetailItemBooking(Context context){
         this.context = context;
     };
-
+    TextView shopName, price, specialprice, deposit, description;
+    DataItemBookingRoom dataItemBookingRoom;
 
 
     BottomSheetBehavior bottomSheetBehavior;
@@ -31,6 +34,14 @@ public class BTSDetailItemBooking extends BottomSheetDialogFragment {
 
         bottomSheetBehavior= BottomSheetBehavior.from((View) (view.getParent()));
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+
+
+        shopName = bottomSheetDialog.findViewById(R.id.shopName);
+        price = bottomSheetDialog.findViewById(R.id.price);
+        specialprice = bottomSheetDialog.findViewById(R.id.specialprice);
+        deposit = bottomSheetDialog.findViewById(R.id.detail_room_deposit);
+        description = bottomSheetDialog.findViewById(R.id.detail_myitem_description);
+
 
 
 

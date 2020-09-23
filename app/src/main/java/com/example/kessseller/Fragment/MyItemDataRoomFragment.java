@@ -1,9 +1,12 @@
 package com.example.kessseller.Fragment;
 
+import android.content.Context;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,7 +22,8 @@ import java.util.List;
 
 public class MyItemDataRoomFragment extends Fragment {
     RecyclerView recyclerView;
-    List<DataItemBookingRoom.DataItemRoom> dataItemRooms;
+    List<DataItemBookingRoom> dataItemRooms;
+    Context context;
     public MyItemDataRoomFragment(){
 
     }
@@ -29,8 +33,8 @@ public class MyItemDataRoomFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.item_data,container,false);
-        DataItemBookingRoom dataItemBookingRoom = new DataItemBookingRoom();
-        dataItemRooms = dataItemBookingRoom.getData_roomitem();
+//        DataItemBookingRoom dataItemBookingRoom = new DataItemBookingRoom();
+//        dataItemRooms = dataItemBookingRoom.getData_roomitem();
         recyclerView = (RecyclerView)view.findViewById(R.id.re_item);
         recyclerView.setHasFixedSize(true);
 
@@ -39,12 +43,12 @@ public class MyItemDataRoomFragment extends Fragment {
 
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        AdapterMyItemRoom adapterOfItemRoom = new AdapterMyItemRoom(dataItemRooms);
+        AdapterMyItemRoom adapterOfItemRoom = new AdapterMyItemRoom(dataItemRooms,context);
         recyclerView.setAdapter(adapterOfItemRoom);
 
-//        TextView tv = (TextView)view.findViewById(R.id.room_price);
-//        tv.setText("Hello");
-//        tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        TextView tv = (TextView)view.findViewById(R.id.room_price);
+        tv.setText("Hello");
+        tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
         return view;
 

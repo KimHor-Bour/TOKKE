@@ -37,7 +37,7 @@ public class Status extends Fragment implements View.OnClickListener {
     AlertDialog alertDialog;
     String[] values = {"Table","Room","Event",};
     TextView textView;
-    List<DataItemBookingRoom.DataItemRoom> dataItemRooms;
+    List<DataItemBookingRoom> dataItemRooms;
     List<DataItemBookingTable.DataItemTable> dataItemTables;
     View clickitem;
     BTSDataDetailBooking btsDataStatus;
@@ -63,7 +63,7 @@ public class Status extends Fragment implements View.OnClickListener {
 
     private BookingListener bookingListener = new BookingListener() {
         @Override
-        public void onItemClick(DataItemBookingRoom.DataItemRoom dataItemRoom) {
+        public void onItemClick(DataItemBookingRoom dataItemRoom) {
 //            System.out.print("click");
             BTSDetailItemBooking btsDetailStatus = new BTSDetailItemBooking(context);
             btsDetailStatus.show(getFragmentManager(), BTSDetailItemBooking
@@ -87,12 +87,12 @@ public class Status extends Fragment implements View.OnClickListener {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable final Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.status_myorder, container, false);
-        DataItemBookingRoom dataItemBookingRoom = new DataItemBookingRoom();
-        dataItemRooms = dataItemBookingRoom.getData_roomitem();
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.my_restatus);
-
-        textView = rootView.findViewById(R.id.type_status);
-        textView.setText(values[0]);
+//        DataItemBookingRoom dataItemBookingRoom = new DataItemBookingRoom();
+//        dataItemRooms = dataItemBookingRoom.get();
+//        recyclerView = (RecyclerView) rootView.findViewById(R.id.my_restatus);
+//
+//        textView = rootView.findViewById(R.id.type_status);
+//        textView.setText(values[0]);
 
         AdapterRoomStatus recyclerAdapterStatus = new AdapterRoomStatus(dataItemRooms);
 

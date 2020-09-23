@@ -16,14 +16,14 @@ import java.util.List;
 
 
 public class AdapterRoomStatus extends RecyclerView.Adapter<AdapterRoomStatus.DataViewHolder> {
-    List<DataItemBookingRoom.DataItemRoom> dataItemRooms;
+    List<DataItemBookingRoom> dataItemRooms;
     BookingListener bookinglistener;
 
     public void setBookinglistener(BookingListener bookinglistener) {
         this.bookinglistener = bookinglistener;
     }
 
-    public AdapterRoomStatus(List<DataItemBookingRoom.DataItemRoom> dataItemRooms) {
+    public AdapterRoomStatus(List<DataItemBookingRoom> dataItemRooms) {
         this.dataItemRooms = dataItemRooms;
 
     }
@@ -36,16 +36,16 @@ public class AdapterRoomStatus extends RecyclerView.Adapter<AdapterRoomStatus.Da
 
     @Override
     public void onBindViewHolder(@NonNull DataViewHolder holder, final int position) {
-        holder.dataNumId.setText(dataItemRooms.get(position).room_number);
-        holder.dataNumPeople.setText(dataItemRooms.get(position).room_num_people);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(bookinglistener != null){
-                    bookinglistener.onItemClick(dataItemRooms.get(position));
-                }
-            }
-        });
+//        holder.dataNumId.setText(dataItemRooms.get(position).n);
+//        holder.dataNumPeople.setText(dataItemRooms.get(position).room_num_people);
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(bookinglistener != null){
+//                    bookinglistener.onItemClick(dataItemRooms.get(position));
+//                }
+//            }
+//        });
 
     }
 
