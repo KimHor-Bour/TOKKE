@@ -11,20 +11,20 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kessseller.Data.DataItemBookingEvent;
-import com.example.kessseller.Listener.ListenerClickItemEvent;
+import com.example.kessseller.Listener.ListenerClickItemBooking;
 import com.example.kessseller.R;
 
 import java.util.List;
 
 public class AdapterMyItemEvent extends RecyclerView.Adapter<AdapterMyItemEvent.DataViewHolder> {
     List<DataItemBookingEvent.DataItemEvent> dataItemEvents;
-    ListenerClickItemEvent listenerClickItemEvent;
+    ListenerClickItemBooking listenerClickItemEvent;
     TextView textView;
     public AdapterMyItemEvent(List<DataItemBookingEvent.DataItemEvent> dataItemEvents) {
         this.dataItemEvents=dataItemEvents;
 
     }
-    public void setListenerClickEvent(ListenerClickItemEvent listenerClickEvent){
+    public void setListenerClickEvent(ListenerClickItemBooking listenerClickEvent){
         this.listenerClickItemEvent = listenerClickEvent;
     }
 
@@ -52,9 +52,9 @@ public class AdapterMyItemEvent extends RecyclerView.Adapter<AdapterMyItemEvent.
         dataViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(listenerClickItemEvent != null){
-                    listenerClickItemEvent.onClickItem(dataItemEvents.get(position));
-                }
+//                if(listenerClickItemEvent != null){
+//                    listenerClickItemEvent.onClickItem(dataItemEvents.get(position));
+//                }
             }
         });
 

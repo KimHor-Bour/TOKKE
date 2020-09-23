@@ -38,6 +38,7 @@
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content">
                        <TextView
+                           android:id="@+id/shopName"
                            android:paddingTop="5dp"
                            android:paddingBottom="5dp"
                            android:paddingEnd="10dp"
@@ -95,13 +96,6 @@
                android:hint="Table Number"
                android:textSize="16dp"
                />
-           <TextView
-               android:layout_marginBottom="10dp"
-               android:id="@+id/detail_myitem_description"
-               android:layout_marginStart="20dp"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:hint="Description"/>
            <LinearLayout
                android:layout_marginBottom="10dp"
                android:layout_marginStart="20dp"
@@ -114,10 +108,31 @@
                    android:textSize="16dp"
                    android:text="Price :"/>
                <TextView
+                   android:id="@+id/price"
                    android:layout_marginStart="10dp"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:hint="price"
+                   android:textSize="16dp"
+                   />
+           </LinearLayout>
+           <LinearLayout
+               android:layout_marginBottom="10dp"
+               android:layout_marginStart="20dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal">
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="16dp"
+                   android:text="Special price :"/>
+               <TextView
+                   android:id="@+id/specialprice"
+                   android:layout_marginStart="10dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:hint="special price"
                    android:textSize="16dp"
                    />
            </LinearLayout>
@@ -132,6 +147,7 @@
                    android:textSize="16dp"
                    android:text="Deposit :"/>
                <TextView
+                   android:id="@+id/detail_room_deposit"
                    android:layout_marginStart="10dp"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
@@ -139,6 +155,13 @@
                    android:textSize="16dp"
                    />
            </LinearLayout>
+           <TextView
+               android:layout_marginTop="10dp"
+               android:id="@+id/detail_myitem_description"
+               android:layout_marginStart="20dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:hint="Description"/>
            <LinearLayout
                android:layout_marginBottom="20dp"
                android:layout_marginTop="10dp"
