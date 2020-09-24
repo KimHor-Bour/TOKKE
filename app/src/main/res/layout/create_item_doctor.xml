@@ -64,13 +64,25 @@
                     android:textSize="20dp"
                     android:layout_margin="10dp"/>
                 <LinearLayout
-                    android:id="@+id/img_click_room"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:orientation="horizontal"
-                    android:background="@drawable/image_border_icon">
-
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:clickable="true"
+                        android:id="@+id/img_click_doctor"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:orientation="horizontal"
+                        android:background="@drawable/image_border_icon">
+                    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/imgSelect"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"/>
                 </LinearLayout>
+
             </LinearLayout>
             <LinearLayout
                 android:layout_marginTop="20dp"
@@ -317,26 +329,39 @@
                             android:textColor="@color/colorBlack"
                             android:text="Description"/>
                     </RelativeLayout>
-                    <LinearLayout
-                        android:id="@+id/tabDescription1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
-                        <TextView
-                            android:id="@+id/enter_app_description"
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="right"
-                            android:hint="Enter Description"
-                            android:textSize="14dp"
-                            android:foregroundGravity="right"
-                            android:background="@android:color/transparent"
-                            android:paddingRight="10dp"/>
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/ic_arrow_right"
-                            />
-                    </LinearLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/c6"
+                        >
+                        <LinearLayout
+                            android:id="@+id/tabDescription1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:layout_constraintTop_toTopOf="@id/c6"
+                            app:layout_constraintEnd_toEndOf="@id/c6"
+                            app:layout_constraintBottom_toBottomOf="@id/c6"
+                            app:layout_constraintStart_toStartOf="@id/c6"
+                            android:orientation="horizontal"
+                            >
+                            <TextView
+                                android:id="@+id/enter_app_description"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:hint="Enter Description"
+                                android:textSize="14dp"
+                                android:foregroundGravity="right"
+                                android:background="@android:color/transparent"
+                                android:paddingRight="10dp"/>
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_arrow_right"
+                                />
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

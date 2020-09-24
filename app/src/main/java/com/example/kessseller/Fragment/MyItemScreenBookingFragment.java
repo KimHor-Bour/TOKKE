@@ -30,6 +30,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kessseller.Adapter.AdapterMyItemBookingTab;
 import com.example.kessseller.Adapter.AdapterMyItemRoom;
+import com.example.kessseller.Adapter.AdapterMyItemTable;
 import com.example.kessseller.Api;
 import com.example.kessseller.ButtonSheet.BTSDataDetailEvent;
 import com.example.kessseller.ButtonSheet.BTSDetailItemBooking;
@@ -58,12 +59,14 @@ import retrofit2.Callback;
 public class MyItemScreenBookingFragment extends Fragment{
     LinearLayout linearLayout;
     private  Context context;
-    RecyclerView recyclerView;
+    RecyclerView recyclerView,recyclerView1;
     List<DataMyItemTabBooking.DataType> dataTypes;
     List<DataItemBookingRoom> dataItemRooms;
+    List<DataItemBookingTable.DataItemTable> dataItemTables;
     AdapterMyItemRoom adapterMyItemRoom;
-    LinearLayout l1,l2,l3,l4;
-    CreateTableScreen createTableScreen;
+
+    private int active = R.id.clickAll;
+    private static int lastClickedPosition = -1;
 
 
     private static String BASE_URL= "http://192.168.50.47:8000/api/rooms";
@@ -78,6 +81,13 @@ public class MyItemScreenBookingFragment extends Fragment{
         @Override
         public void onTabClick(DataMyItemTabBooking.DataType dataType) {
             Toast.makeText(context, dataType.getType_item(),Toast.LENGTH_LONG).show();
+
+        }
+
+        @Override
+        public void onItemCLick(DataItemBookingTable.DataItemTable dataItemTable) {
+            BTSDetailItemBooking btsDetailItemBooking =new BTSDetailItemBooking(context);
+            btsDetailItemBooking.show(getFragmentManager(), BTSDetailItemBooking.class.getSimpleName());
 
         }
 
@@ -114,26 +124,13 @@ public class MyItemScreenBookingFragment extends Fragment{
         adapterDataType.setBookinglistener(bookingListener);
         recyclerView.setAdapter(adapterDataType);
 
-//        recyclerView = view.findViewById(R.id.data_type);
-//        DataItemBookingEvent dataItemBookingEvent = new DataItemBookingEvent();
-//        dataItemEvents = dataItemBookingEvent.getData_eventitem();
-//        AdapterMyItemEvent adapterMyItemEvent = new AdapterMyItemEvent(dataItemEvents);
-//        adapterMyItemEvent.setListenerClickEvent(listenerClickItemEvent);
-//        recyclerView.setAdapter(adapterMyItemEvent);
-//
-        recyclerView = view.findViewById(R.id.data_type);
-//        DataItemBookingRoom dataItemBookingRoom = new DataItemBookingRoom();
-//        dataItemRooms = dataItemBookingRoom.get
-//        AdapterMyItemRoom adapterMyItemRoom = new AdapterMyItemRoom(dataItemRooms);
-//        adapterMyItemRoom.setBookinglistener(listenerClickItemEvent);
-//        recyclerView.setAdapter(adapterMyItemRoom);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(context));
-//        recyclerView.addItemDecoration(new DividerItemDecoration(context,DividerItemDecoration.VERTICAL));
+        DataItemBookingTable dataItemBookingTable = new DataItemBookingTable();
+        dataItemTables = dataItemBookingTable.getData_tableitem();
+        recyclerView1 = view.findViewById(R.id.data_type);
+        AdapterMyItemTable adapterMyItemTable = new AdapterMyItemTable(dataItemTables);
+        adapterMyItemTable.setDataItemTables(bookingListener);
+        recyclerView1.setAdapter(adapterMyItemTable);
 
-        dataItemRooms = new ArrayList<>();
-
-
-        getAllData();
 
 
         linearLayout = view.findViewById(R.id.add_item);
@@ -148,8 +145,8 @@ public class MyItemScreenBookingFragment extends Fragment{
 
                 LinearLayout l1 = (LinearLayout) dialogView.findViewById(R.id.clickCreateProduct);
                 final LinearLayout l2 = (LinearLayout) dialogView.findViewById(R.id.clickCreateTable);
-                LinearLayout l3 = (LinearLayout) dialogView.findViewById(R.id.clickCreateRoom);
-                LinearLayout l4 = (LinearLayout) dialogView.findViewById(R.id.clickCreateEvent);
+                final LinearLayout l3 = (LinearLayout) dialogView.findViewById(R.id.clickCreateRoom);
+                final LinearLayout l4 = (LinearLayout) dialogView.findViewById(R.id.clickCreateEvent);
 
                 l1.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -160,25 +157,26 @@ public class MyItemScreenBookingFragment extends Fragment{
                 l2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        l2.setBackgroundColor(context.getResources().getColor(R.color.colorblurGrey));
                         alertDialog.dismiss();
                         startActivity(new Intent(context, CreateTableScreen.class));
-                        l2.setBackgroundColor(context.getResources().getColor(R.color.colorblurGrey));
+
                     }
                 });
                 l3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        l3.setBackgroundColor(context.getResources().getColor(R.color.colorblurGrey));
                         alertDialog.dismiss();
                         startActivity(new Intent(context, CreateRoomScreen.class));
-                        l2.setBackgroundColor(Color.GRAY);
                     }
                 });
                 l3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        l4.setBackgroundColor(context.getResources().getColor(R.color.colorblurGrey));
                         alertDialog.dismiss();
                         startActivity(new Intent(context, CreateEventScreen.class));
-                        l2.setBackgroundColor(context.getResources().getColor(R.color.colorblurGrey));
                     }
                 });
 
@@ -192,22 +190,39 @@ public class MyItemScreenBookingFragment extends Fragment{
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                String[] f = {"All", "Approved", "Inactive"};
-                builder.setItems(f, new DialogInterface.OnClickListener() {
+                ViewGroup viewGroup = view.findViewById(android.R.id.content);
+                final View dialogView = LayoutInflater.from(view.getContext()).inflate(R.layout.alert_filter_item, viewGroup, false);
+                builder.setView(dialogView);
+                final AlertDialog alertDialog = builder.create();
+
+                final LinearLayout f1 = (LinearLayout) dialogView.findViewById(R.id.clickAll);
+                final LinearLayout f2 = (LinearLayout) dialogView.findViewById(R.id.clickApproved);
+                final LinearLayout f3 = (LinearLayout) dialogView.findViewById(R.id.clickInactive);
+
+                f1.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        switch (i) {
-                            case 0:
-                                break;
-                            case 1:
-                                break;
-                            case 2:
-                                break;
-                        }
+                    public void onClick(View view) {
+                        f1.setBackgroundColor(context.getResources().getColor(R.color.colorblurGrey));
+                      alertDialog.dismiss();
+
                     }
                 });
-                AlertDialog dialog1 = builder.create();
-                dialog1.show();
+                f2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        f2.setBackgroundColor(context.getResources().getColor(R.color.colorblurGrey));
+                        alertDialog.dismiss();
+                    }
+                });
+                f3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        f3.setBackgroundColor(context.getResources().getColor(R.color.colorblurGrey));
+                        alertDialog.dismiss();
+                    }
+                });
+
+                alertDialog.show();
             }
         });
 
@@ -250,27 +265,6 @@ public class MyItemScreenBookingFragment extends Fragment{
 
         );
         queue.add(jsonArrayRequest);
-
-
-//        Call<List<DataItemBookingRoom>> datalist = Api.getDataRoom().getAllRoom();
-//
-//        datalist.enqueue(new Callback<List<DataItemBookingRoom>>() {
-//            @Override
-//            public void onResponse(Call<List<DataItemBookingRoom>> call, Response<List<DataItemBookingRoom>> response) {
-//                if(response.isSuccessful()){
-//                    List<DataItemBookingRoom> dataItemBookingRooms = response.body();
-//                    AdapterMyItemRoom adapterMyItemRoom = new AdapterMyItemRoom(dataItemRooms);
-//                    adapterMyItemRoom.setItemRoom(dataItemBookingRooms);
-//                    recyclerView.setAdapter(adapterMyItemRoom);
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<DataItemBookingRoom>> call, Throwable t) {
-//                Log.e("fail",t.getLocalizedMessage());
-//
-//            }
-//        });
     }
 
 

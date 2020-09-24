@@ -6,4 +6,17 @@
     <string name="mycupon">My Cupon</string>
     <string name="account">My Account</string>
     <string name="appointment">Appointment</string>
+
+
+
+    <string name="all">All</string>
+    <string name="booking_request">Booking Request</string>
+    <string name="booking_list">Booking List</string>
+    <string name="complete">Completed</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="booking_history">Booking History</string>
+
+
+
+
 </resources>

@@ -9,16 +9,23 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.kessseller.Data.DataItemBookingRoom;
 import com.example.kessseller.Data.DataItemBookingTable;
+import com.example.kessseller.Listener.BookingListener;
 import com.example.kessseller.R;
 
 import java.util.List;
 
 public class AdapterMyItemTable extends RecyclerView.Adapter<AdapterMyItemTable.DataViewHolder> {
     List<DataItemBookingTable.DataItemTable> dataItemTables;
+    BookingListener bookingListener;
+
     public AdapterMyItemTable(List<DataItemBookingTable.DataItemTable> dataItemTables) {
         this.dataItemTables=dataItemTables;
 
+    }
+    public void setDataItemTables(BookingListener bookingListener) {
+        this.bookingListener = bookingListener;
     }
 
 
@@ -31,7 +38,7 @@ public class AdapterMyItemTable extends RecyclerView.Adapter<AdapterMyItemTable.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DataViewHolder dataViewHolder, int position) {
+    public void onBindViewHolder(@NonNull DataViewHolder dataViewHolder, final int position) {
         dataViewHolder.dataTableNum.setText(dataItemTables.get(position).table_number);
         dataViewHolder.dataNumPeople.setText(dataItemTables.get(position).num_people);
 //        dataViewHolder.dataFloor.setText(dataItemTables.get(position).floor);
@@ -39,6 +46,15 @@ public class AdapterMyItemTable extends RecyclerView.Adapter<AdapterMyItemTable.
         dataViewHolder.dataSpecialPrice.setText(dataItemTables.get(position).special_price_table);
         dataViewHolder.dataShap.setText(dataItemTables.get(position).shape_table);
         dataViewHolder.dataDepositTable.setText(dataItemTables.get(position).deposit_table);
+        dataViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(bookingListener != null){
+                    bookingListener.onItemCLick(dataItemTables.get(position));
+                }
+            }
+        });
+
 
     }
 

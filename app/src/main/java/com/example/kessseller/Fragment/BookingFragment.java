@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,12 +29,18 @@ import com.example.kessseller.R;
 import java.util.List;
 public class BookingFragment extends Fragment implements View.OnClickListener {
     View view;
-    String[] values = {"All","Booking Request","Booking List","Completed","Cancelled","Booking History",};
     TextView textView;
     List<DataRecyclerViewBooking.DataRecycler> datas;
     //    RecyclerAdapter recyclerAdapter;
     RecyclerView recyclerView;
     Context context;
+
+    RadioGroup radioGroup;
+    RadioButton radioButton;
+    int activeClick = R.id.radioAll;
+
+
+
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -49,7 +57,7 @@ public class BookingFragment extends Fragment implements View.OnClickListener {
 
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable final Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.booking_myorder, container, false);
+        final View rootView = inflater.inflate(R.layout.booking_myorder, container, false);
         DataRecyclerViewBooking dataRecyclerViewBooking = new DataRecyclerViewBooking();
         datas = dataRecyclerViewBooking.getDataRecycler();
         recyclerView = (RecyclerView) rootView.findViewById(R.id.my_rebooking);
@@ -61,7 +69,7 @@ public class BookingFragment extends Fragment implements View.OnClickListener {
         recyclerView.setLayoutManager(llm);
 
         textView = rootView.findViewById(R.id.txtfilter);
-        textView.setText(values[0]);
+        textView.setText(R.string.all);
 
         RecyclerAdapterBooking recyclerAdapter = new RecyclerAdapterBooking(datas);
         recyclerView.setAdapter(recyclerAdapter);
@@ -71,27 +79,33 @@ public class BookingFragment extends Fragment implements View.OnClickListener {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onCreateDialog(savedInstanceState);
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                final ViewGroup viewGroup = view.findViewById(android.R.id.content);
+                final View dialogView = LayoutInflater.from(view.getContext()).inflate(R.layout.ratio_filter, viewGroup, false);
+                builder.setView(dialogView);
+                final AlertDialog alertDialog = builder.create();
+                radioGroup = dialogView.findViewById(R.id.radioGroup);
+                radioGroup.check(activeClick);
+                radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                        radioButton = radioGroup.findViewById(i);
+                        activeClick = radioButton.getId();
+
+                        TextView textView = rootView.findViewById(R.id.txtfilter);
+
+                        textView.setText(radioButton.getText());
+                        alertDialog.dismiss();
+
+                    }
+                });
+                alertDialog.show();
+
             }
         });
         return rootView;
     }
 
-    @NonNull
-    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Selected Filter");
-        builder.setSingleChoiceItems(values,-1, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                TextView txt = (TextView)getActivity().findViewById(R.id.txtfilter);
-                txt.setText(values[i]);
-                dialogInterface.dismiss();
-            };
-        });
-        builder.create();
-        return builder.show();
-    }
     @Override
     public void onClick(View view) {
     }

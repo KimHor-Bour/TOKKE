@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:padding="20dp"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+    <TextView
+        android:paddingStart="20dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="@color/colorBlack"
+        android:layout_height="wrap_content"
+        android:text="Select Filter"/>
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:paddingStart="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RadioButton
+            android:paddingStart="5dp"
+            android:id="@+id/radioAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:textSize="16dp"
+            android:checked="true"
+            android:buttonTint="@color/colorPurplePink"
+            android:text="@string/all"/>
+        <RadioButton
+            android:textSize="16dp"
+            android:paddingStart="5dp"
+            android:checked="false"
+            android:buttonTint="@color/colorPurplePink"
+            android:id="@+id/radioBookingRequest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="@string/booking_request"/>
+        <RadioButton
+            android:textSize="16dp"
+            android:checked="false"
+            android:buttonTint="@color/colorPurplePink"
+            android:paddingStart="5dp"
+            android:id="@+id/radioBookingList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="@string/booking_list"/>
+        <RadioButton
+            android:textSize="16dp"
+            android:checked="false"
+            android:buttonTint="@color/colorPurplePink"
+            android:paddingStart="5dp"
+            android:id="@+id/radioCompleted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="@string/complete"/>
+        <RadioButton
+            android:textSize="16dp"
+            android:paddingStart="5dp"
+            android:checked="false"
+            android:buttonTint="@color/colorPurplePink"
+            android:id="@+id/radioCancelled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="@string/cancelled"/>
+        <RadioButton
+            android:textSize="16dp"
+            android:paddingStart="5dp"
+            android:checked="false"
+            android:buttonTint="@color/colorPurplePink"
+            android:id="@+id/radioBookingHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="@string/booking_history"/>
+
+
+    </RadioGroup>
+
+</LinearLayout>

@@ -76,6 +76,11 @@ public class Status extends Fragment implements View.OnClickListener {
         }
 
         @Override
+        public void onItemCLick(DataItemBookingTable.DataItemTable dataItemTable) {
+
+        }
+
+        @Override
         public void onAccept(Date date) {
             TextView datetv = linearLayout.findViewById(R.id.txt_selecteddate);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE dd MMM hh:mm a");
