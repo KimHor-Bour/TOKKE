@@ -66,10 +66,10 @@
                 android:layout_gravity="top"
                 android:gravity="top"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="300dp"
                 android:hint="Description"
                 android:textSize="14dp"
-                android:minHeight="500dp"
+                android:minHeight="200dp"
                 android:background="@android:color/transparent"
                 android:textColor="@color/colorBlack"
                 />

@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.kessseller.Adapter.AdapterMyItemRoom;
+//import com.example.kessseller.Adapter.AdapterMyItemRoom;
 import com.example.kessseller.Data.DataItemBookingRoom;
 import com.example.kessseller.R;
 
@@ -43,12 +43,12 @@ public class MyItemDataRoomFragment extends Fragment {
 
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        AdapterMyItemRoom adapterOfItemRoom = new AdapterMyItemRoom(dataItemRooms,context);
-        recyclerView.setAdapter(adapterOfItemRoom);
-
-        TextView tv = (TextView)view.findViewById(R.id.room_price);
-        tv.setText("Hello");
-        tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+//        AdapterMyItemRoom adapterOfItemRoom = new AdapterMyItemRoom(dataItemRooms,context);
+//        recyclerView.setAdapter(adapterOfItemRoom);
+//
+//        TextView tv = (TextView)view.findViewById(R.id.room_price);
+//        tv.setText("Hello");
+//        tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
         return view;
 

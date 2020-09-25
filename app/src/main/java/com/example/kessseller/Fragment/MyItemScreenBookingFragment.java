@@ -1,12 +1,8 @@
 package com.example.kessseller.Fragment;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.VoiceInteractor;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,15 +18,13 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kessseller.Adapter.AdapterMyItemBookingTab;
-import com.example.kessseller.Adapter.AdapterMyItemRoom;
-import com.example.kessseller.Adapter.AdapterMyItemTable;
+//import com.example.kessseller.Adapter.AdapterMyItemRoom;
+import com.example.kessseller.AdapterAPI.AdapterGetRoom;
 import com.example.kessseller.Api;
 import com.example.kessseller.ButtonSheet.BTSDataDetailEvent;
 import com.example.kessseller.ButtonSheet.BTSDetailItemBooking;
@@ -38,11 +32,14 @@ import com.example.kessseller.Data.DataItemBookingEvent;
 import com.example.kessseller.Data.DataItemBookingRoom;
 import com.example.kessseller.Data.DataItemBookingTable;
 import com.example.kessseller.Data.DataMyItemTabBooking;
+import com.example.kessseller.JSONResponse;
 import com.example.kessseller.Java.CreateEventScreen;
 import com.example.kessseller.Java.CreateRoomScreen;
 import com.example.kessseller.Java.CreateTableScreen;
 import com.example.kessseller.Listener.BookingListener;
 import com.example.kessseller.Listener.ListenerClickItemBooking;
+import com.example.kessseller.Model.ModelRoomList;
+import com.example.kessseller.PlaceholderAPI;
 import com.example.kessseller.R;
 
 import org.json.JSONArray;
@@ -50,26 +47,33 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MyItemScreenBookingFragment extends Fragment{
     LinearLayout linearLayout;
     private  Context context;
-    RecyclerView recyclerView,recyclerView1;
+    private RecyclerView recyclerView,recyclerView1;
     List<DataMyItemTabBooking.DataType> dataTypes;
-    List<DataItemBookingRoom> dataItemRooms;
     List<DataItemBookingTable.DataItemTable> dataItemTables;
-    AdapterMyItemRoom adapterMyItemRoom;
+//    AdapterMyItemRoom adapterMyItemRoom;
 
     private int active = R.id.clickAll;
     private static int lastClickedPosition = -1;
 
+    private LinearLayoutManager linearLayoutManager;
+    private DividerItemDecoration dividerItemDecoration;
+    private ArrayList<ModelRoomList> modelDataLists;
+    private AdapterGetRoom adapter;
 
-    private static String BASE_URL= "http://192.168.50.47:8000/api/rooms";
+//    Api api;
+
+
 
     private BookingListener bookingListener = new BookingListener() {
         @Override
@@ -124,12 +128,43 @@ public class MyItemScreenBookingFragment extends Fragment{
         adapterDataType.setBookinglistener(bookingListener);
         recyclerView.setAdapter(adapterDataType);
 
-        DataItemBookingTable dataItemBookingTable = new DataItemBookingTable();
-        dataItemTables = dataItemBookingTable.getData_tableitem();
-        recyclerView1 = view.findViewById(R.id.data_type);
-        AdapterMyItemTable adapterMyItemTable = new AdapterMyItemTable(dataItemTables);
-        adapterMyItemTable.setDataItemTables(bookingListener);
-        recyclerView1.setAdapter(adapterMyItemTable);
+//        DataItemBookingTable dataItemBookingTable = new DataItemBookingTable();
+//        dataItemTables = dataItemBookingTable.getData_tableitem();
+//        recyclerView1 = view.findViewById(R.id.data_type);
+//        AdapterMyItemTable adapterMyItemTable = new AdapterMyItemTable(dataItemTables);
+//        adapterMyItemTable.setDataItemTables(bookingListener);
+//        recyclerView1.setAdapter(adapterMyItemTable);
+
+        recyclerView = view.findViewById(R.id.data_type);
+
+        linearLayoutManager = new LinearLayoutManager(context);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.addItemDecoration(dividerItemDecoration);
+        recyclerView.setAdapter(adapter);
+
+        loadJson();
+
+//        PlaceholderAPI placeholderAPI = Api.getRetrofit().create(PlaceholderAPI.class);
+//        Call<List<ModelRoomList>> call = placeholderAPI.getAllRoom();
+//
+//        call.enqueue(new Callback<List<ModelRoomList>>() {
+//            @Override
+//            public void onResponse(Call<List<ModelRoomList>> call, retrofit2.Response<List<ModelRoomList>> response) {
+//                modelDataLists = response.body();
+//                Log.d("TAG","Response = "+modelDataLists);
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<ModelRoomList>> call, Throwable t) {
+//                Log.d("Error",t.getLocalizedMessage());
+//
+//            }
+//        });
+//        getData();
 
 
 
@@ -171,7 +206,7 @@ public class MyItemScreenBookingFragment extends Fragment{
                         startActivity(new Intent(context, CreateRoomScreen.class));
                     }
                 });
-                l3.setOnClickListener(new View.OnClickListener() {
+                l4.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         l4.setBackgroundColor(context.getResources().getColor(R.color.colorblurGrey));
@@ -229,44 +264,93 @@ public class MyItemScreenBookingFragment extends Fragment{
         return view;
     }
 
-    private void getAllData() {
-        RequestQueue queue = Volley.newRequestQueue(getContext());
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, BASE_URL, null, new Response.Listener<JSONArray>() {
+    private void loadJson() {
+        final PlaceholderAPI placeholderAPI = Api.getRetrofit().create(PlaceholderAPI.class);
+        Call<JSONResponse> call = placeholderAPI.getAllRoom();
+        call.enqueue(new Callback<JSONResponse>() {
             @Override
-            public void onResponse(JSONArray response) {
-                for (int i = 0; i < response.length(); i++) {
-                    try {
-                        JSONObject jsonObject = response.getJSONObject(i);
+            public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
+                JSONResponse jsonResponse = response.body();
+                modelDataLists = new ArrayList<>(Arrays.asList(jsonResponse.getRoomLists()));
+                adapter = new AdapterGetRoom(modelDataLists);
+                recyclerView.setAdapter(adapter);
+            }
 
-                        DataItemBookingRoom dataItemBookingRoom = new DataItemBookingRoom();
-                        dataItemBookingRoom.setName(jsonObject.getString("name"));
-                        dataItemBookingRoom.setMax_people(jsonObject.getInt("max_people"));
-                        dataItemBookingRoom.setPrice(jsonObject.getDouble("price"));
-                        dataItemBookingRoom.setSpecial_price(jsonObject.getDouble("special_price"));
-                        dataItemBookingRoom.setDeposit(jsonObject.getDouble("deposit"));
-                        dataItemBookingRoom.add(dataItemRooms);
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                adapterMyItemRoom = new AdapterMyItemRoom(dataItemRooms,getContext());
-                recyclerView.setAdapter(adapterMyItemRoom);
-
+            @Override
+            public void onFailure(Call<JSONResponse> call, Throwable t) {
+                Log.d("Error",t.getLocalizedMessage());
 
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("error","on Response" +error.getLocalizedMessage());
-            }
-        }
-
-        );
-        queue.add(jsonArrayRequest);
+        });
     }
 
+//    private void getData() {
+//        StringRequest stringRequest = new StringRequest(BASE_URL, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                try {
+//                    JSONObject object = new JSONObject(response);
+//
+//                    JSONArray dataArray = object.getJSONArray("data");
+//
+//                    for(int i = 0; i<dataArray.length();i++){
+//                        JSONObject dataObject = dataArray.getJSONObject(i);
+//
+//                        ModelRoomList modelDataList = new ModelRoomList(dataObject.getString("name"),dataObject.getInt("max_people"),
+//                                dataObject.getDouble("price"),dataObject.getDouble("special_price"),dataObject.getDouble("deposit"));
+//
+//                        modelDataLists.add(modelDataList);
+//                    }
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Toast.makeText(getContext(),error.getMessage(),Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//
+//
+////        final ProgressDialog progressDialog = new ProgressDialog(context);
+////        progressDialog.setMessage("Loading....");
+////        progressDialog.show();
+////
+////        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(BASE_URL, new Response.Listener<JSONArray>() {
+////            @Override
+////            public void onResponse(JSONArray response) {
+////                for (int i = 0; i < response.length(); i++) {
+////                    try {
+////                        JSONObject jsonObject = response.getJSONObject(i);
+////                        ModelDataList modelDataList = new ModelDataList();
+////                        modelDataList.setName(jsonObject.getString("name"));
+////                        modelDataList.setMax_people(jsonObject.getInt("max_people"));
+////                        modelDataList.setPrice(jsonObject.getDouble("price"));
+////                        modelDataList.setSpecial_price(jsonObject.getDouble("special_price"));
+////                        modelDataList.setDeposit(jsonObject.getDouble("deposit"));
+////                        modelDataLists.add(modelDataList);
+////                    } catch (JSONException e) {
+////                        e.printStackTrace();
+////                        progressDialog.dismiss();
+////                    }
+////                }
+////                adapter.notifyDataSetChanged();
+////                progressDialog.dismiss();
+////            }
+////        }, new Response.ErrorListener() {
+////            @Override
+////            public void onErrorResponse(VolleyError error) {
+////                Log.e("Volley", error.toString());
+////                progressDialog.dismiss();
+////            }
+////        }
+////        );
+//        RequestQueue requestQueue = Volley.newRequestQueue(context);
+//        requestQueue.add(stringRequest);
+//    }
 
     @Override
     public void onAttach(@NonNull Context context) {
